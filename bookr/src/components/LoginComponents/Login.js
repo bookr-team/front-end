@@ -7,7 +7,7 @@ function Login(props) {
     <div className="login">
       <h1>Welcome to Login</h1>
       <p>maybe an image here</p>
-      <LoginForm />
+      <LoginForm login={props.login} />
     </div>
   );
 }

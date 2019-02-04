@@ -1,35 +1,34 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { connect } from 'react-redux';
 
-import auth from './components/auth/auth';
+import { checkCurrentLogin } from './store/actions';
+
 import LoginView from './views/LoginView/LoginView';
 import HomeView from './views/HomeView/HomeView';
 
 import './App.css';
 
-class App extends Component {
-  constructor(props){
-    super();
-    this.state = {
-      currUser: ""
-    }
-    this.props = props;
-  }
+function App(props) {
+checkCurrentLogin();
+const conditionalRender = props.isLoggedIn ? 
+<HomeView 
+  userName={props.userName}
+/> 
+: <LoginView />;
 
-  componentDidMount() {
-    this.setState({
-      currUser: localStorage.getItem('bookrUser')
-    });
-  }
-
-  render() {
-    return (
-      <div className= "App">
-        <ConditionalRender />
-      </div>
-    );
-  }
+return (
+  <div className= "App">
+    {conditionalRender}
+  </div>
+);
 }
 
-const ConditionalRender = auth(HomeView)(LoginView);
+const mapStateToProps = state => ({
+  isLoggedIn: state.isLoggedIn,
+  userName: state.userName
+})
 
-export default App;
+export default connect(
+  mapStateToProps,
+  { checkCurrentLogin }
+)(App);

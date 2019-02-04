@@ -16,8 +16,8 @@ class LoginForm extends React.Component {
   }
 
   handleLogin = (e) => {
-    this.state.userNameInput ? localStorage.setItem('bookrUser', this.state.userNameInput)
-    : e.preventDefault();
+    e.preventDefault();
+    this.state.userNameInput && this.props.login(this.state.userNameInput);
   }
 
   render() {

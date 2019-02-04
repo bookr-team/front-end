@@ -5,7 +5,9 @@ import Home from '../../components/HomeComponents/Home';
 function HomeView(props) {
   return (
     <div className="HomeView">
-      <Home />
+      <Home 
+      userName={props.userName}
+      />
     </div>
   );
 }

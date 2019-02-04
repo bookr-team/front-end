@@ -1,4 +1,6 @@
 import {
+  LOGGED_IN_TRUE,
+  LOGGED_IN_FALSE,
   LOGIN_START,
   LOGIN_SUCCESS,
   LOGIN_FAILURE
@@ -45,6 +47,18 @@ const initialState = {
 
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
+    case LOGGED_IN_TRUE:
+      return {
+        ...state,
+        isLoggedIn: true,
+        userName: action.payload
+      }
+    case LOGGED_IN_FALSE:
+      return {
+        ...state,
+        isLoggedIn: false,
+        userName: ''
+      }
     case LOGIN_START:
       return {
         ...state,
