@@ -1,32 +1,33 @@
 import React from 'react';
+import { Route, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import { checkCurrentLogin } from './store/actions';
 
+import auth from './components/auth/auth';
 import LoginView from './views/LoginView/LoginView';
 import HomeView from './views/HomeView/HomeView';
 
 import './App.css';
 
-function App(props) {
-checkCurrentLogin();
-const conditionalRender = props.isLoggedIn ? 
-<HomeView 
-  userName={props.userName}
-/> 
-: <LoginView />;
+class App extends React.Component {
 
-return (
-  <div className= "App">
-    {conditionalRender}
-  </div>
-);
+  render () {
+    return (
+      <div className= "App">
+        <ConditionalRender />
+      </div>
+    );
+  }
 }
+
 
 const mapStateToProps = state => ({
   isLoggedIn: state.isLoggedIn,
   userName: state.userName
 })
+
+const ConditionalRender = auth(HomeView)(LoginView);
 
 export default connect(
   mapStateToProps,

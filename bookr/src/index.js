@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
@@ -8,6 +9,8 @@ import logger from 'redux-logger';
 import rootReducer from './store/reducers';
 
 import App from './App';
+import Landing from './Landing';
+import HomeView from './views/HomeView/HomeView'
 
 import './index.css';
 
@@ -19,7 +22,12 @@ const store = createStore(
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />  
+    <Router>
+      <Switch>
+        <Route exact path="/" component={Landing} />
+        <Route path="/login" component={App} />
+      </Switch>
+    </Router>
   </Provider>, 
   document.getElementById('root')
 );

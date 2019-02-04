@@ -1,4 +1,6 @@
 import React from 'react';
+import { withRouter } from 'react-router';
+import { Route } from 'react-router-dom';
 
 class LoginForm extends React.Component {
   constructor() {
@@ -22,25 +24,27 @@ class LoginForm extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.handleLogin}>
-        <input
-          type="text"
-          placeholder="UserName"
-          name="userNameInput"
-          value={this.state.userNameInput}
-          onChange={this.handleInput}
-          autoComplete="off"
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          name="passwordInput"
-          value={this.state.passwordInput}
-          onChange={this.handleInput}
-          autoComplete="off"
-        />
-        <button type="submit" value="Login">Log In</button>
-      </form>
+      <>
+        <form onSubmit={this.handleLogin}>
+          <input
+            type="text"
+            placeholder="UserName"
+            name="userNameInput"
+            value={this.state.userNameInput}
+            onChange={this.handleInput}
+            autoComplete="off"
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            name="passwordInput"
+            value={this.state.passwordInput}
+            onChange={this.handleInput}
+            autoComplete="off"
+          />
+          <button type="submit" value="Login">Log In</button>
+        </form>
+      </>
     );
   }
 }
