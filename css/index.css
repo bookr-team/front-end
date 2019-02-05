@@ -12,12 +12,15 @@
 }
 #lower-sec img {
   max-width: 45%;
+  border-radius: 15px;
+  border: 8px solid #F9C03B;
 }
 #lower-secR {
   display: flex;
   flex-direction: row-reverse;
   justify-content: space-around;
   padding: 25px 0;
+  border-bottom: 1px solid grey;
 }
 #lower-secR div {
   max-width: 45%;
@@ -26,6 +29,8 @@
 }
 #lower-secR img {
   max-width: 45%;
+  border-radius: 15px;
+  border: 8px solid #F9C03B;
 }
 @media (max-width: 500px) {
   #lower-sec {
@@ -36,6 +41,7 @@
   }
   #lower-sec img {
     max-width: 95%;
+    border: 3px solid #F9C03B;
   }
 }
 @media (max-width: 500px) {
@@ -52,6 +58,7 @@
 footer {
   display: flex;
   justify-content: center;
+  padding: 50px;
 }
 .container {
   font-family: arial;
