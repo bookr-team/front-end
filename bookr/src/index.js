@@ -20,8 +20,8 @@ const store = createStore(
   composeEnhancers(applyMiddleware(thunk, logger))
 );
 
-const isLoggedIn = store.getState().isLoggedIn;
-console.log(store.getState());
+// const isLoggedIn = store.getState().isLoggedIn;
+// console.log(store.getState());
 
 ReactDOM.render(
   <Provider store={store}>

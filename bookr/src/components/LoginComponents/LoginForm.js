@@ -7,7 +7,8 @@ class LoginForm extends React.Component {
     super();
     this.state = {
       userNameInput: "",
-      passwordInput: ""
+      passwordInput: "",
+      role: 1
     }
   }
 
@@ -19,8 +20,13 @@ class LoginForm extends React.Component {
 
   handleLogin = (e) => {
     e.preventDefault();
-    this.state.userNameInput && this.props.login(this.state.userNameInput);
-    this.props.history.push('/loggedIn');
+    const userData = {
+      username: this.state.userNameInput,
+      password: this.state.passwordInput,
+      role: this.state.role
+    }
+    this.state.userNameInput && this.props.login(userData);
+    // this.props.history.push('/loggedIn');
   }
 
   render() {
