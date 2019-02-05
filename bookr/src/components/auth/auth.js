@@ -26,9 +26,9 @@ const auth = HomeView => LoginView =>
 
     render() {
       if (this.state.loggedIn) {
-        return <Route path="/loggedIn" component={HomeView} /> 
+        return <HomeView /> // <Route path="/loggedIn" component={HomeView} />  // return component instead!!
       }
-      return <Route path="/login" component={LoginView} /> //<LoginView /> //
+      return <LoginView /> // <Route path="/login" component={LoginView} /> //<LoginView /> //
     }
   }
 

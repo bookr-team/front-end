@@ -26,7 +26,8 @@ class LoginForm extends React.Component {
       role: this.state.role
     }
     this.state.userNameInput && this.props.login(userData);
-    // this.props.history.push('/loggedIn');
+    // todo: try/catch...
+    this.props.history.push('/loggedIn');
   }
 
   render() {

@@ -16,16 +16,18 @@ export const checkCurrentLogin = () => dispatch => {
 
 export const login = (userData) => dispatch => {
   dispatch({ type: LOGIN_START });
-  API
-  .post("login", userData)
-  .then( res => {
-    console.log(res);
-    localStorage.setItem('bookrUser', userData.username);
-    // todo: cases if login success or fail
-    dispatch({ type: LOGIN_SUCCESS, payload: userData.username });
-  })
-  .catch( err => {
-    console.log(err);
-    dispatch({ type: LOGIN_FAILURE, payload: err.response })
-  })
+  localStorage.setItem('bookrUser', userData.username);
+  dispatch({ type: LOGIN_SUCCESS, payload: userData.username });
+  // API
+  // .post("login", userData)
+  // .then( res => {
+  //   console.log(res);
+  //   localStorage.setItem('bookrUser', userData.username);
+  //   // todo: cases if login success or fail
+  //   dispatch({ type: LOGIN_SUCCESS, payload: userData.username });
+  // })
+  // .catch( err => {
+  //   console.log(err);
+  //   dispatch({ type: LOGIN_FAILURE, payload: err.response })
+  // })
 }

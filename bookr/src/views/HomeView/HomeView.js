@@ -10,12 +10,21 @@ function HomeView(props) {
 
   console.log("HomeView");
   // props.getBooks();  // if successful, props.books = [books here!]
-
-  return (
-    <div className="HomeView">
+  if (localStorage.getItem('bookrUser')) {
+    return (
       <Home 
         userName={props.userName}
       />
+    )
+  } else {
+    return (
+      <div>LOG IN!!</div>
+    )
+  }
+
+  return (
+    <div className="HomeView">
+      
     </div>
   );
 }
