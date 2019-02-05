@@ -104,7 +104,6 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         isRegistering: true,
-        userName: '',
         error: ''
       }
     case REGISTER_SUCCESS:

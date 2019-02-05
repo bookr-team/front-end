@@ -41,11 +41,10 @@ class RegisterForm extends React.Component {
     const userData = {
       username: this.state.userNameInput,
       password: this.state.passwordInput,
-      passwordConfirm: this.state.passwordConfirmInput,
       role: this.state.role
     };
     try {
-      this.state.userNameInput && this.props.register(JSON.stringify(userData));
+      this.state.userNameInput && this.props.register(userData);
       this.props.history.push('/loggedin');
     }
     catch(err) {

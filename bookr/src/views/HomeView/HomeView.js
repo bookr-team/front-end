@@ -11,7 +11,7 @@ function HomeView(props) {
   if (props.isLoggedIn) { // update this to check for token once that's working...
     // console.log(props.books);
     if (props.books.length === 0) {
-      props.getBooks();  // if successful, props.books = [books here!]
+      // props.getBooks();  // if successful, props.books = [books here!]
     }
     return (
       <Home 
