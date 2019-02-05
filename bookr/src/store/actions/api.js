@@ -5,5 +5,5 @@ export const API = axios.create({
 })
 
 export const demoAPI = axios.create({
-  baseURL: `https://bookr-app.herokuapp.com/api/`
+  baseURL: `https://bookr-app.herokuapp.com/demo/api/`
 })

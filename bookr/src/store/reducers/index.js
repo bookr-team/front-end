@@ -3,7 +3,10 @@ import {
   LOGGED_IN_FALSE,
   LOGIN_START,
   LOGIN_SUCCESS,
-  LOGIN_FAILURE
+  LOGIN_FAILURE,
+  FETCHING_BOOKS_START,
+  FETCHING_BOOKS_SUCCESS,
+  FETCHING_BOOKS_FAILURE,
 } from '../actions';
 
 const user = localStorage.getItem('bookrUser');
@@ -13,6 +16,7 @@ const loggedIn = user ? true : false;
 const initialState = {
   isLoggedIn: loggedIn,
   isLoggingIn: false,
+  isFetchingBooks: false,
   error: '',
   userName: user,
   books: [
@@ -81,6 +85,24 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         isLoggingIn: false,
+        error: action.payload
+      }
+    case FETCHING_BOOKS_START:
+      return {
+        ...state,
+        isFetchingBooks: true,
+        error: ''
+      }
+    case FETCHING_BOOKS_SUCCESS:
+      return {
+        ...state,
+        isFetchingBooks: false,
+        books: action.payload
+      }
+    case FETCHING_BOOKS_FAILURE:
+      return {
+        ...state,
+        isFetchingBooks: false,
         error: action.payload
       }
     default: 
