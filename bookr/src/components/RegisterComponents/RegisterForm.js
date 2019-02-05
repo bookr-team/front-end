@@ -2,25 +2,15 @@ import React from 'react';
 import { withRouter } from 'react-router';
 import { Link } from 'react-router-dom';
 
-class LoginForm extends React.Component {
+class RegisterForm extends React.Component {
   constructor() {
     super();
     this.state = {
       userNameInput: "",
       passwordInput: "",
-      role: 1,
+      passwordConfirmInput: "",
+      role: 0,
       inputInvalid: true
-    }
-  }
-
-  componentDidMount() {
-    console.log("login form is logged in: ", this.props.isLoggedIn);
-    
-    if(this.props.isLoggingIn) {
-      this.setState({
-        inputInvalid: true,
-        isLoggingIn: true
-      });
     }
   }
 
@@ -33,10 +23,12 @@ class LoginForm extends React.Component {
   validateInput = () => {
     // console.log("validating input: ", this.state.userNameInput, this.state.passwordInput);
     if(this.state.userNameInput && this.state.passwordInput) {
-      // console.log("good input");
-      this.setState({
-        inputInvalid: false
-      });
+      if(this.state.passwordInput === this.state.passwordConfirmInput) {
+        console.log("good input");
+        this.setState({
+          inputInvalid: false
+        });
+      }
     } else {
       this.setState({
         inputInvalid: true
@@ -44,17 +36,19 @@ class LoginForm extends React.Component {
     }
   }
 
-  handleLogin = (e) => {
+  handleRegister = (e) => {
     e.preventDefault();
     const userData = {
       username: this.state.userNameInput,
       password: this.state.passwordInput,
+      passwordConfirm: this.state.passwordConfirmInput,
       role: this.state.role
     };
     try {
-      this.state.userNameInput && this.props.login(JSON.stringify(userData));this.props.history.push('/loggedin'); // once logged in, redirect
-    } catch(err) {
-      this.props.history.push('/login');
+      this.state.userNameInput && this.props.register(JSON.stringify(userData));
+      this.props.history.push('/loggedin');
+    }
+    catch(err) {
       console.log(err);
     }
   }
@@ -62,7 +56,7 @@ class LoginForm extends React.Component {
   render() {
     return (
       <>
-        <form onSubmit={this.handleLogin}>
+        <form onSubmit={this.handleRegister}>
           <input
             type="text"
             placeholder="UserName"
@@ -79,18 +73,26 @@ class LoginForm extends React.Component {
             onChange={this.handleInput}
             autoComplete="off"
           />
+          <input
+            type="password"
+            placeholder="Confirm Password"
+            name="passwordConfirmInput"
+            value={this.state.passwordConfirmInput}
+            onChange={this.handleInput}
+            autoComplete="off"
+          />
           <button 
             type="submit" 
-            value="Login" 
+            value="Register"
             disabled={this.state.inputInvalid}
           >
-            Log In
+            Register
           </button>
-          <Link to="/register">Register</Link>
+          <Link to="/login">Login</Link>
         </form>
       </>
     );
   }
 }
     
-export default withRouter(LoginForm);
+export default withRouter(RegisterForm);

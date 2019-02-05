@@ -1,4 +1,4 @@
-// import { API, demoAPI } from './api';
+import { API } from './api';
 
 export const LOGIN_START = 'LOGIN_START';
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
@@ -29,8 +29,8 @@ export const login = (userData) => dispatch => {
   //   dispatch({ type: LOGIN_SUCCESS, payload: userData.username });
   // })
   // .catch( err => {
-  //   console.log(err);
+  //   console.log("login actinon error: ", err);
   //   dispatch({ type: LOGIN_FAILURE, payload: err.response })
-  //   throw "login failure";
+  //   throw new Error("login error");
   // })
 }

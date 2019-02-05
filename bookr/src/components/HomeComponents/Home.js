@@ -11,7 +11,7 @@ class Home extends React.Component {
   }
 
   render() {
-    // console.log(this.props.books);
+    console.log("render in Home ", this.props.books);
     const booksCards = this.props.books.map(book => 
       <BookCard key={book.id} book={book} /> );
     

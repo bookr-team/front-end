@@ -6,19 +6,18 @@ import { withRouter } from 'react-router';
 import { checkCurrentLogin } from './store/actions';
 
 // import auth from './components/auth/auth';
+import BookView from './views/BookView/BookView';
 import HomeView from './views/HomeView/HomeView';
 import Landing from './Landing';
 import LoginView from './views/LoginView/LoginView';
-import BookView from './views/BookView/BookView';
+import RegisterView from './views/RegisterView/RegisterView';
 
 import './App.css';
 
 class App extends React.Component {
 
   render () {
-    // const isLoggedIn = this.props.isLoggedIn;
-    // console.log("App render, loggedIn? ", isLoggedIn);
-
+    // console.log("App render, isLoggingIn: ", this.props.isLoggingIn);
     return (
       <div className= "App">
         {/* <Switch>
@@ -30,6 +29,7 @@ class App extends React.Component {
         </Switch> */}
         <Route exact path="/" component={Landing} />
         <Route path="/login" component={LoginView} />
+        <Route path="/register" component={RegisterView} />
         <Route exact path="/loggedin" component={HomeView} />
         <Route 
           path="/loggedin/book/:id" component={BookView} />
@@ -42,7 +42,8 @@ class App extends React.Component {
 
 const mapStateToProps = state => ({
   isLoggedIn: state.isLoggedIn,
-  userName: state.userName
+  userName: state.userName,
+  // isLoggingIn: state.isLoggingIn
 })
 
 // const ConditionalRender = auth(HomeView)(LoginView);

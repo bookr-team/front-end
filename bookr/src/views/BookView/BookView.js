@@ -5,10 +5,10 @@ import BookSingle from  '../../components/BooksComponents/BookSingle';
 
 function BookView(props) {
 
-  console.log("BookView: ", props.books);
-  console.log(props.match.params.id);
+  // console.log("BookView: ", props.books);
+  // console.log(props.match.params.id);
   const book = props.books.find(book => book.id.toString() === props.match.params.id);
-  console.log(book);
+  // console.log(book);
 
   return (
     <BookSingle book={book} />
