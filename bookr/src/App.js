@@ -29,7 +29,7 @@ class App extends React.Component {
         </Switch> */}
         <Route exact path="/" component={Landing} />
         <Route path="/login" component={LoginView} />
-        <Route exact path="/loggedIn" component={HomeView} />
+        <Route exact path="/loggedin" component={HomeView} />
         {/* <ConditionalRender />  */}
       </div>
     );

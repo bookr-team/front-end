@@ -2,13 +2,13 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import { getBooks } from '../../store/actions';
+import { getBooks, logout } from '../../store/actions';
 
 import Home from '../../components/HomeComponents/Home';
 
 function HomeView(props) {
 
-  if (localStorage.getItem('bookrUser')) {
+  if (props.isLoggedIn) { // update this to check for token once that's working...
     // console.log(props.books);
     if (props.books.length === 0) {
       props.getBooks();  // if successful, props.books = [books here!]
@@ -17,6 +17,7 @@ function HomeView(props) {
       <Home 
         userName={props.userName}
         books={props.books}
+        logout={props.logout}
       />
     )
   } else {
@@ -29,13 +30,15 @@ function HomeView(props) {
 const mapStateToProps = state => {
   return {
     books: state.books,
-    userName: state.userName
+    userName: state.userName,
+    isLoggedIn: state.isLoggedIn
   }
 }
 
 export default connect(
   mapStateToProps,
   {
-    getBooks
+    getBooks,
+    logout
   }
 )(HomeView);

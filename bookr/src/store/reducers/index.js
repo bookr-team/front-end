@@ -4,12 +4,13 @@ import {
   LOGIN_START,
   LOGIN_SUCCESS,
   LOGIN_FAILURE,
+  LOGOUT,
   FETCHING_BOOKS_START,
   FETCHING_BOOKS_SUCCESS,
   FETCHING_BOOKS_FAILURE,
 } from '../actions';
 
-const user = localStorage.getItem('bookrUser');
+const user = localStorage.getItem('bookrUser'); // todo: udpdate to token.
 // console.log(user);
 const loggedIn = user ? true : false;
 
@@ -19,7 +20,7 @@ const initialState = {
   isFetchingBooks: false,
   error: '',
   userName: user,
-  books: [
+  books: [{ "id": 1, "title": "FirstBook", "author": "me", "publisher": "book inc", "summary": "stuff", "true": null }, { "id": 2, "title": "SecondBook", "author": "me", "publisher": "bookinc", "summary": null, "true": null }, { "id": 3, "title": "C++ for all", "author": "Prof. SmartyPants", "publisher": "Tech book inc", "summary": "more stuff", "true": null }
     // {
     //   title: 'Test book1',
     //   author: 'Test author 1',
@@ -86,6 +87,13 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         isLoggingIn: false,
         error: action.payload
+      }
+    case LOGOUT:
+      return {
+        ...state,
+        isLoggedIn: false,
+        userName: '',
+        error: ''
       }
     case FETCHING_BOOKS_START:
       return {

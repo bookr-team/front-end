@@ -6,11 +6,16 @@ export {
   LOGIN_FAILURE,
   checkCurrentLogin,
   login
-} from './loginActions'
+} from './loginActions';
+
+export {
+  LOGOUT,
+  logout
+} from './logoutActions';
 
 export {
   FETCHING_BOOKS_START,
   FETCHING_BOOKS_SUCCESS,
   FETCHING_BOOKS_FAILURE,
   getBooks
-} from './booksActions'
+} from './booksActions';

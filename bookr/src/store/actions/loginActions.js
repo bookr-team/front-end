@@ -1,4 +1,4 @@
-// import { API, demoAPI } from './api';
+import { API, demoAPI } from './api';
 
 export const LOGIN_START = 'LOGIN_START';
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
@@ -16,8 +16,10 @@ export const checkCurrentLogin = () => dispatch => {
 
 export const login = (userData) => dispatch => {
   dispatch({ type: LOGIN_START });
-  localStorage.setItem('bookrUser', userData.username);
-  dispatch({ type: LOGIN_SUCCESS, payload: userData.username });
+  console.log("login action, userData: ", userData);
+  localStorage.setItem('bookrUser', JSON.parse(userData).username);
+  dispatch({ type: LOGIN_SUCCESS, payload: JSON.parse(userData).username });
+  // throw "login failure";
   // API
   // .post("login", userData)
   // .then( res => {
@@ -29,5 +31,6 @@ export const login = (userData) => dispatch => {
   // .catch( err => {
   //   console.log(err);
   //   dispatch({ type: LOGIN_FAILURE, payload: err.response })
+  //   throw "login failure";
   // })
 }

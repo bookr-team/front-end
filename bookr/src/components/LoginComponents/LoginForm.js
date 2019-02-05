@@ -8,7 +8,7 @@ class LoginForm extends React.Component {
     this.state = {
       userNameInput: "",
       passwordInput: "",
-      role: 1
+      role: 0
     }
   }
 
@@ -24,10 +24,14 @@ class LoginForm extends React.Component {
       username: this.state.userNameInput,
       password: this.state.passwordInput,
       role: this.state.role
+    };
+    try {
+      this.state.userNameInput && this.props.login(JSON.stringify(userData));
+      this.props.history.push('/loggedin');
     }
-    this.state.userNameInput && this.props.login(userData);
-    // todo: try/catch...
-    this.props.history.push('/loggedIn');
+    catch(err) {
+      console.log(err);
+    }
   }
 
   render() {

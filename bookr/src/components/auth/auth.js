@@ -19,7 +19,7 @@ const auth = HomeView => LoginView =>
           loggedIn: true,
           user: user
         });
-        this.props.history.push('/loggedIn')
+        this.props.history.push('/loggedin')
       };
     }
 
