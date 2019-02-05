@@ -1,9 +1,10 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
+// import { Route } from 'react-router-dom';
 
 const auth = HomeView => LoginView =>
   class extends React.Component {
     constructor(props) {
+      console.log("constructor auth.js");
       super();
       this.state = {
         loggedIn: false,
@@ -14,6 +15,7 @@ const auth = HomeView => LoginView =>
 
     componentDidMount() {
       const user = localStorage.getItem('bookrUser');
+      console.log("cdm auth, user: ", user);
       
       if (user) {
         this.setState({
@@ -25,8 +27,9 @@ const auth = HomeView => LoginView =>
     }
 
     render() {
+      console.log("render, auth: this.state.user", this.state.user);
       if (this.state.loggedIn) {
-        return <HomeView /> // <Route path="/loggedIn" component={HomeView} />  // return component instead!!
+        return <HomeView userName={this.state.user} /> // <Route path="/loggedIn" component={HomeView} />  // return component instead!!
       }
       return <LoginView /> // <Route path="/login" component={LoginView} /> //<LoginView /> //
     }

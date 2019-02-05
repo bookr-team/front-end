@@ -20,36 +20,36 @@ const initialState = {
   error: '',
   userName: user,
   books: [
-    {
-      title: 'Test book1',
-      author: 'Test author 1',
-      publisher: 'Test publisher1',
-      reviews: [
-        {
-            reviewer: 'Test reviewer 1',
-            review: 'this is a good test review 1'
-        },
-        {
-          reviewer: 'Test reviewer 2',
-          review: 'this is a good test review 2'
-        }
-      ]
-    },
-    {
-      title: 'Test book2',
-      author: 'Test author 2',
-      publisher: 'Test publisher2',
-      reviews: [
-        {
-            reviewer: 'Test reviewer 1',
-            review: 'this is a good test review 3'
-        },
-        {
-          reviewer: 'Test reviewer 2',
-          review: 'this is a good test review 4'
-        }
-      ]
-    }
+    // {
+    //   title: 'Test book1',
+    //   author: 'Test author 1',
+    //   publisher: 'Test publisher1',
+    //   reviews: [
+    //     {
+    //         reviewer: 'Test reviewer 1',
+    //         review: 'this is a good test review 1'
+    //     },
+    //     {
+    //       reviewer: 'Test reviewer 2',
+    //       review: 'this is a good test review 2'
+    //     }
+    //   ]
+    // },
+    // {
+    //   title: 'Test book2',
+    //   author: 'Test author 2',
+    //   publisher: 'Test publisher2',
+    //   reviews: [
+    //     {
+    //         reviewer: 'Test reviewer 1',
+    //         review: 'this is a good test review 3'
+    //     },
+    //     {
+    //       reviewer: 'Test reviewer 2',
+    //       review: 'this is a good test review 4'
+    //     }
+    //   ]
+    // }
   ]
 };
 

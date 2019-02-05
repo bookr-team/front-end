@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
+// import { Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import { getBooks } from '../../store/actions';
@@ -8,12 +8,15 @@ import Home from '../../components/HomeComponents/Home';
 
 function HomeView(props) {
 
-  console.log("HomeView");
-  // props.getBooks();  // if successful, props.books = [books here!]
   if (localStorage.getItem('bookrUser')) {
+    // console.log(props.books);
+    if (props.books.length === 0) {
+      props.getBooks();  // if successful, props.books = [books here!]
+    }
     return (
       <Home 
         userName={props.userName}
+        books={props.books}
       />
     )
   } else {
@@ -21,12 +24,6 @@ function HomeView(props) {
       <div>LOG IN!!</div>
     )
   }
-
-  return (
-    <div className="HomeView">
-      
-    </div>
-  );
 }
 
 const mapStateToProps = state => {

@@ -1,6 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router';
-import { Route, Link } from 'react-router-dom';
+// import { Route, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import { checkCurrentLogin } from './store/actions';

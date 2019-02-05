@@ -1,7 +1,7 @@
 import React from 'react';
-import { Route, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
-import App from './App';
+// import App from './App';
 
 function Landing() {
   return (

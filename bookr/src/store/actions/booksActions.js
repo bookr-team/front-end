@@ -1,4 +1,4 @@
-import { API, demoAPI } from './api';
+import { demoAPI } from './api';
 
 export const FETCHING_BOOKS_START = 'FETCHING_BOOKS_START';
 export const FETCHING_BOOKS_SUCCESS = 'FETCHING_BOOKS_SUCCESS';
