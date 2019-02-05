@@ -9,6 +9,7 @@ import { checkCurrentLogin } from './store/actions';
 import HomeView from './views/HomeView/HomeView';
 import Landing from './Landing';
 import LoginView from './views/LoginView/LoginView';
+import BookView from './views/BookView/BookView';
 
 import './App.css';
 
@@ -30,6 +31,8 @@ class App extends React.Component {
         <Route exact path="/" component={Landing} />
         <Route path="/login" component={LoginView} />
         <Route exact path="/loggedin" component={HomeView} />
+        <Route 
+          path="/loggedin/book/:id" component={BookView} />
         {/* <ConditionalRender />  */}
       </div>
     );
