@@ -9,14 +9,31 @@ class RegisterForm extends React.Component {
       userNameInput: "",
       passwordInput: "",
       passwordConfirmInput: "",
-      role: 0
+      role: 0,
+      inputInvalid: true
     }
   }
 
   handleInput = (e) => {
     this.setState ({
       [e.target.name]: e.target.value
-    });
+    }, () => this.validateInput());
+  }
+
+  validateInput = () => {
+    // console.log("validating input: ", this.state.userNameInput, this.state.passwordInput);
+    if(this.state.userNameInput && this.state.passwordInput) {
+      if(this.state.passwordInput === this.state.passwordConfirmInput) {
+        console.log("good input");
+        this.setState({
+          inputInvalid: false
+        });
+      }
+    } else {
+      this.setState({
+        inputInvalid: true
+      });
+    }
   }
 
   handleRegister = (e) => {
@@ -64,7 +81,13 @@ class RegisterForm extends React.Component {
             onChange={this.handleInput}
             autoComplete="off"
           />
-          <button type="submit" value="Register">Register</button>
+          <button 
+            type="submit" 
+            value="Register"
+            disabled={this.state.inputInvalid}
+          >
+            Register
+          </button>
           <Link to="/login">Login</Link>
         </form>
       </>

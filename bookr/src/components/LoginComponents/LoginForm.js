@@ -8,14 +8,29 @@ class LoginForm extends React.Component {
     this.state = {
       userNameInput: "",
       passwordInput: "",
-      role: 0
+      role: 0,
+      inputInvalid: true
     }
   }
 
   handleInput = (e) => {
     this.setState ({
       [e.target.name]: e.target.value
-    });
+    }, () => this.validateInput());
+  }
+
+  validateInput = () => {
+    // console.log("validating input: ", this.state.userNameInput, this.state.passwordInput);
+    if(this.state.userNameInput && this.state.passwordInput) {
+      // console.log("good input");
+      this.setState({
+        inputInvalid: false
+      });
+    } else {
+      this.setState({
+        inputInvalid: true
+      });
+    }
   }
 
   handleLogin = (e) => {
@@ -54,7 +69,13 @@ class LoginForm extends React.Component {
             onChange={this.handleInput}
             autoComplete="off"
           />
-          <button type="submit" value="Login">Log In</button>
+          <button 
+            type="submit" 
+            value="Login" 
+            disabled={this.state.inputInvalid}
+          >
+            Log In
+          </button>
           <Link to="/register">Register</Link>
         </form>
       </>
