@@ -8,8 +8,19 @@ class LoginForm extends React.Component {
     this.state = {
       userNameInput: "",
       passwordInput: "",
-      role: 0,
+      role: 1,
       inputInvalid: true
+    }
+  }
+
+  componentDidMount() {
+    console.log("login form is logged in: ", this.props.isLoggedIn);
+    
+    if(this.props.isLoggingIn) {
+      this.setState({
+        inputInvalid: true,
+        isLoggingIn: true
+      });
     }
   }
 
@@ -41,10 +52,9 @@ class LoginForm extends React.Component {
       role: this.state.role
     };
     try {
-      this.state.userNameInput && this.props.login(JSON.stringify(userData));
-      this.props.history.push('/loggedin');
-    }
-    catch(err) {
+      this.state.userNameInput && this.props.login(JSON.stringify(userData));this.props.history.push('/loggedin'); // once logged in, redirect
+    } catch(err) {
+      this.props.history.push('/login');
       console.log(err);
     }
   }

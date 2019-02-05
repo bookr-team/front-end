@@ -17,9 +17,7 @@ import './App.css';
 class App extends React.Component {
 
   render () {
-    // const isLoggedIn = this.props.isLoggedIn;
-    // console.log("App render, loggedIn? ", isLoggedIn);
-
+    // console.log("App render, isLoggingIn: ", this.props.isLoggingIn);
     return (
       <div className= "App">
         {/* <Switch>
@@ -44,7 +42,8 @@ class App extends React.Component {
 
 const mapStateToProps = state => ({
   isLoggedIn: state.isLoggedIn,
-  userName: state.userName
+  userName: state.userName,
+  // isLoggingIn: state.isLoggingIn
 })
 
 // const ConditionalRender = auth(HomeView)(LoginView);

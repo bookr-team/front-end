@@ -7,7 +7,11 @@ function Login(props) {
     <div className="login">
       <h1>Welcome to Login</h1>
       <p>maybe an image here</p>
-      <LoginForm login={props.login} />
+      <LoginForm 
+        login={props.login} 
+        isLoggingIn={props.isLoggingIn}
+        isLoggedIn={props.isLoggedIn}
+      />
     </div>
   );
 }
