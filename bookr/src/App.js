@@ -5,7 +5,7 @@ import { withRouter } from 'react-router';
 
 import { checkCurrentLogin } from './store/actions';
 
-import auth from './components/auth/auth';
+// import auth from './components/auth/auth';
 import HomeView from './views/HomeView/HomeView';
 import Landing from './Landing';
 import LoginView from './views/LoginView/LoginView';
@@ -42,7 +42,7 @@ const mapStateToProps = state => ({
   userName: state.userName
 })
 
-const ConditionalRender = auth(HomeView)(LoginView);
+// const ConditionalRender = auth(HomeView)(LoginView);
 
 export default withRouter(connect(
   mapStateToProps,

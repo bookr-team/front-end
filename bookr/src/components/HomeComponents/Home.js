@@ -11,12 +11,17 @@ class Home extends React.Component {
   }
 
   render() {
-    console.log(this.books);
+    // console.log(this.props.books);
+    const booksCards = this.props.books.map(book => 
+      <BookCard key={book.id} book={book} /> );
+    
     return (
       <div className="Home">
         <button name="logout" onClick={this.handleLogout}>Log Out</button>
         <h1>Welcome to BOOKR, {this.props.userName}</h1>
-        <BookCard book={this.props.books.title} />
+        <div className="books grid">
+          {booksCards}
+        </div>
       </div>
     );
   }  
