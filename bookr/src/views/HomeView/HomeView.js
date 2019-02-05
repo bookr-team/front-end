@@ -8,9 +8,8 @@ function HomeView(props) {
 
   return (
     <div className="HomeView">
-      <Route exact path="/loggedIn" component={HomeView} />
       <Home 
-      userName={props.userName}
+        userName={props.userName}
       />
     </div>
   );

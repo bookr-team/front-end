@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router';
 import { Route, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
@@ -29,7 +30,7 @@ const mapStateToProps = state => ({
 
 const ConditionalRender = auth(HomeView)(LoginView);
 
-export default connect(
+export default withRouter(connect(
   mapStateToProps,
   { checkCurrentLogin }
-)(App);
+)(App));

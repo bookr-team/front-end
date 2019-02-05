@@ -6,11 +6,15 @@ import {
   LOGIN_FAILURE
 } from '../actions';
 
+const user = localStorage.getItem('bookrUser');
+// console.log(user);
+const loggedIn = user ? true : false;
+
 const initialState = {
-  isLoggedIn: false,
+  isLoggedIn: loggedIn,
   isLoggingIn: false,
   error: '',
-  userName: '',
+  userName: user,
   books: [
     {
       title: 'Test book1',

@@ -20,12 +20,16 @@ const store = createStore(
   composeEnhancers(applyMiddleware(thunk, logger))
 );
 
+const isLoggedIn = store.getState().isLoggedIn;
+console.log(store.getState());
+
 ReactDOM.render(
   <Provider store={store}>
     <Router>
       <Switch>
         <Route exact path="/" component={Landing} />
         <Route path="/login" component={App} />
+        <Route path="/loggedIn" component={HomeView} />
       </Switch>
     </Router>
   </Provider>, 

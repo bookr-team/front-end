@@ -20,6 +20,7 @@ class LoginForm extends React.Component {
   handleLogin = (e) => {
     e.preventDefault();
     this.state.userNameInput && this.props.login(this.state.userNameInput);
+    this.props.history.push('/loggedIn');
   }
 
   render() {
@@ -49,4 +50,4 @@ class LoginForm extends React.Component {
   }
 }
     
-export default LoginForm;
+export default withRouter(LoginForm);

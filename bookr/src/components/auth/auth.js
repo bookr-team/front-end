@@ -21,11 +21,13 @@ const auth = HomeView => LoginView =>
           user: user
         });
       };
-      if (this.state.loggedIn) {this.props.history.push('/loggedIn')}
+      if (this.state.loggedIn){this.props.history.push('/loggedIn')};
     }
 
     render() {
-      if(this.state.loggedIn) return <Route path="/loggedIn" component={HomeView} /> 
+      if (this.state.loggedIn) {
+        return <Route path="/loggedIn" component={HomeView} /> 
+      }
       return <Route path="/login" component={LoginView} /> //<LoginView /> //
     }
   }
