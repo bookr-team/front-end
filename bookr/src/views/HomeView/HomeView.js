@@ -1,5 +1,5 @@
 import React from 'react';
-// import { Route } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import { getBooks } from '../../store/actions';
@@ -21,14 +21,15 @@ function HomeView(props) {
     )
   } else {
     return (
-      <div>LOG IN!!</div>
+      <Link to="/login">LOG IN!!</Link>
     )
   }
 }
 
 const mapStateToProps = state => {
   return {
-    books: state.books
+    books: state.books,
+    userName: state.userName
   }
 }
 
