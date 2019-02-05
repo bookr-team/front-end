@@ -5,6 +5,9 @@ import {
   LOGIN_SUCCESS,
   LOGIN_FAILURE,
   LOGOUT,
+  REGISTER_START,
+  REGISTER_SUCCESS,
+  REGISTER_FAILURE,
   FETCHING_BOOKS_START,
   FETCHING_BOOKS_SUCCESS,
   FETCHING_BOOKS_FAILURE,
@@ -17,6 +20,7 @@ const loggedIn = user ? true : false;
 const initialState = {
   isLoggedIn: loggedIn,
   isLoggingIn: false,
+  isRegistering: false,
   isFetchingBooks: false,
   error: '',
   userName: user,
@@ -94,6 +98,27 @@ const rootReducer = (state = initialState, action) => {
         isLoggedIn: false,
         userName: '',
         error: ''
+      }
+    case REGISTER_START:
+      return {
+        ...state,
+        isRegistering: true,
+        userName: '',
+        error: ''
+      }
+    case REGISTER_SUCCESS:
+      return {
+        ...state,
+        isRegistering: false,
+        isLoggedIn: true,
+        userName: action.payload,
+        error: ''
+      }
+    case REGISTER_FAILURE:
+      return {
+        ...state,
+        isRegistering: false,
+        error: action.payload
       }
     case FETCHING_BOOKS_START:
       return {

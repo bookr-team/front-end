@@ -6,10 +6,11 @@ import { withRouter } from 'react-router';
 import { checkCurrentLogin } from './store/actions';
 
 // import auth from './components/auth/auth';
+import BookView from './views/BookView/BookView';
 import HomeView from './views/HomeView/HomeView';
 import Landing from './Landing';
 import LoginView from './views/LoginView/LoginView';
-import BookView from './views/BookView/BookView';
+import RegisterView from './views/RegisterView/RegisterView';
 
 import './App.css';
 
@@ -30,6 +31,7 @@ class App extends React.Component {
         </Switch> */}
         <Route exact path="/" component={Landing} />
         <Route path="/login" component={LoginView} />
+        <Route path="/register" component={RegisterView} />
         <Route exact path="/loggedin" component={HomeView} />
         <Route 
           path="/loggedin/book/:id" component={BookView} />
