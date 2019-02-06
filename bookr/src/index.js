@@ -32,6 +32,9 @@ const theme = createMuiTheme({
       main: '#fc5e32', // orange
       contrastText: '#dfdce3' // gray
     },
+    action: {
+      main: '#f7be4d',
+    }
   },
   typography: {
     useNextVariants: true,
@@ -39,7 +42,14 @@ const theme = createMuiTheme({
       '"Open Sans"',
     ].join(','),
   },overrides: {
-
+    // MuiCardActionArea: {
+    //   focusVisible: {
+    //     backgroundColor: 'primary'
+    //   },
+    //   focusHighlight: {
+    //     backgroundColor: 'secondary'
+    //   }
+    // }
   }
 });
 
