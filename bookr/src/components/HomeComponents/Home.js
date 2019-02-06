@@ -4,6 +4,7 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 
+import Nav from '../NavComponents/Nav';
 import BookCard from '../BooksComponents/BookCard';
 
 class Home extends React.Component {
@@ -20,16 +21,17 @@ class Home extends React.Component {
     
     return (
       <div className="Home">
-        <Button 
+        <Nav handleLogout={this.handleLogout}></Nav>
+        {/* <Button 
           name="logout" 
           color="primary" 
           style={{ fontFamily: 'aleo' }}
           onClick={this.handleLogout}
         >
           Log Out
-        </Button>
+        </Button> */}
         <Typography 
-          variant="h2"
+          variant="h4"
           style={{ fontFamily: 'aleo' }}
         >
           Welcome to BOOKR, {this.props.userName}
