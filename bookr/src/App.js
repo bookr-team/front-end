@@ -19,22 +19,22 @@ class App extends React.Component {
   render () {
     // console.log("App render, isLoggingIn: ", this.props.isLoggingIn);
     return (
-      <div className= "App">
-        {/* <Switch>
+        <div className= "App">
+          {/* <Switch>
+            <Route exact path="/" component={Landing} />
+            <Route path="/login" component={LoginView} />
+            { isLoggedIn && 
+              <Route exact path="/loggedIn" component={HomeView} />
+            }
+          </Switch> */}
           <Route exact path="/" component={Landing} />
           <Route path="/login" component={LoginView} />
-          { isLoggedIn && 
-            <Route exact path="/loggedIn" component={HomeView} />
-          }
-        </Switch> */}
-        <Route exact path="/" component={Landing} />
-        <Route path="/login" component={LoginView} />
-        <Route path="/register" component={RegisterView} />
-        <Route exact path="/loggedin" component={HomeView} />
-        <Route 
-          path="/loggedin/book/:id" component={BookView} />
-        {/* <ConditionalRender />  */}
-      </div>
+          <Route path="/register" component={RegisterView} />
+          <Route exact path="/loggedin" component={HomeView} />
+          <Route 
+            path="/loggedin/book/:id" component={BookView} />
+          {/* <ConditionalRender />  */}
+        </div>
     );
   }
 }

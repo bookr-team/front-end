@@ -1,13 +1,20 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Card from '@material-ui/core/Card';
+import Typography from '@material-ui/core/Typography';
 
 function BookCard(props) {
   return (
-    <Link to={`/loggedin/book/${props.book.id}`} className= "Book-card">
-      <h2>Title: {props.book.title}</h2>
-      <h4>By {props.book.author}</h4>
-      <div>Published by {props.book.publisher}</div>
-      <p>Summary: {props.book.summary}</p>
+    <Link 
+      to={`/loggedin/book/${props.book.id}`}
+      style={{ textDecoration: 'none' }}
+    >
+      <Card raised>
+        <Typography variant="h4">Title: {props.book.title}</Typography>
+        <Typography variant="h6">By {props.book.author}</Typography>
+        <Typography variant="subtitle1">Published by {props.book.publisher}</Typography>
+        <Typography variant="body1">Summary: {props.book.summary}</Typography>
+      </Card>
     </Link>
   )
 }

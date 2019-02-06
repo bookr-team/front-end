@@ -1,5 +1,8 @@
 import React from 'react';
 import { withRouter } from 'react-router';
+import Button from '@material-ui/core/Button';
+import Typography from '@material-ui/core/Typography';
+import Grid from '@material-ui/core/Grid';
 
 import BookCard from '../BooksComponents/BookCard';
 
@@ -17,11 +20,16 @@ class Home extends React.Component {
     
     return (
       <div className="Home">
-        <button name="logout" onClick={this.handleLogout}>Log Out</button>
-        <h1>Welcome to BOOKR, {this.props.userName}</h1>
-        <div className="books grid">
+        <Button name="logout" color="primary" onClick={this.handleLogout}>Log Out</Button>
+        <Typography variant="h2">Welcome to BOOKR, {this.props.userName}</Typography>
+        <Grid 
+          container 
+          direction="row"
+          justify="space-evenly"
+          alignItems="center"
+        >
           {booksCards}
-        </div>
+        </Grid>
       </div>
     );
   }  

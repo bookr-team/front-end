@@ -29,6 +29,10 @@ class RegisterForm extends React.Component {
         this.setState({
           inputInvalid: false
         });
+      } else {
+        this.setState({
+          inputInvalid: true
+        });
       }
     } else {
       this.setState({
@@ -85,6 +89,7 @@ class RegisterForm extends React.Component {
             type="submit" 
             value="Register"
             disabled={this.state.inputInvalid}
+            color="primary"
           >
             Register
           </Button>
