@@ -14,6 +14,9 @@ import {
   FETCHING_REVIEWS_START,
   FETCHING_REVIEWS_SUCCESS,
   FETCHING_REVIEWS_FAILURE,
+  POSTING_REVIEW_START,
+  POSTING_REVIEW_SUCCESS,
+  POSTING_REVIEW_FAILURE,
 } from '../actions';
 
 const user = localStorage.getItem('bookrUser'); // todo: udpdate to token.
@@ -26,6 +29,7 @@ const initialState = {
   isRegistering: false,
   isFetchingBooks: false,
   isFetchingReviews: false,
+  isPostingReview: false,
   error: '',
   userName: user,
   books: [
@@ -123,7 +127,7 @@ const rootReducer = (state = initialState, action) => {
         isFetchingBooks: false,
         error: action.payload
       }
-      case FETCHING_REVIEWS_START:
+    case FETCHING_REVIEWS_START:
       return {
         ...state,
         isFetchingReviews: true,
@@ -139,6 +143,23 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         isFetchingReviews: false,
+        error: action.payload
+      }
+    case POSTING_REVIEW_START:
+      return {
+        ...state,
+        isPostingReview: true,
+        error: ''
+      }
+    case POSTING_REVIEW_SUCCESS:
+      return {
+        ...state,
+        isPostingReview: false
+      }
+    case POSTING_REVIEW_FAILURE:
+      return {
+        ...state,
+        isPostingReview: false,
         error: action.payload
       }
     default: 

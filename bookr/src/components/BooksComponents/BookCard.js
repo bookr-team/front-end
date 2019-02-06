@@ -36,7 +36,7 @@ function BookCard(props) {
       to={`/loggedin/book/${props.book.id}`}
       style={{ textDecoration: 'none' }}
     >
-      <Card raised>
+      <Card raised style={{ maxWidth: '40%', margin: '0 auto'}}>
         <CardActionArea>
           <Typography 
             variant="h4" 

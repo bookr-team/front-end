@@ -33,3 +33,10 @@ export {
   FETCHING_REVIEWS_FAILURE,
   getReviews
 } from './reviewsActions';
+
+export {
+  POSTING_REVIEW_START,
+  POSTING_REVIEW_SUCCESS,
+  POSTING_REVIEW_FAILURE,
+  postReview
+} from './reviewsActions';

@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+import { postReview } from '../../store/actions';
+
 import BookSingle from  '../../components/BooksComponents/BookSingle';
 
 function BookView(props) {
@@ -16,6 +18,7 @@ function BookView(props) {
     <BookSingle 
       book={book} 
       reviews={reviews} 
+      postReview={props.postReview}
     />
   );
 }
@@ -29,5 +32,7 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  {}
+  {
+    postReview
+  }
 )(BookView);
