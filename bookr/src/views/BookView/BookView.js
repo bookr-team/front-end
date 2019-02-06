@@ -11,7 +11,7 @@ function BookView(props) {
   // console.log(props.match.params.id);
   const book = props.books.find(book => book.id.toString() === props.match.params.id);
   // console.log(book);
-  const reviews = props.reviews.filter(review => review.book_id === book.id);
+  const reviews = props.reviews.filter(review => review.books_id === book.id);
   // console.log("BookView, Reviews: ", reviews);
 
   return (

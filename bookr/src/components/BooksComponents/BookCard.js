@@ -28,7 +28,7 @@ function BookCard(props) {
   const { classes } = props;
   let reviews = "";
   if(props.reviews) {
-    console.log(props.reviews);
+    console.log("BookCard reviews: ", props.reviews);
     reviews = props.reviews.map(review => <Review key={review.reviewer} review={review} />)
   }
 
