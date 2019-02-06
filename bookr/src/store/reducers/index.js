@@ -36,20 +36,8 @@ const initialState = {
   isPostingReview: false,
   error: '',
   userName: user,
-  books: [
-    // { "id": 1, "title": "FirstBook", "author": "me", "publisher": "book inc", "summary": "stuff", "true": null }, { "id": 2, "title": "SecondBook", "author": "me", "publisher": "bookinc", "summary": null, "true": null }, { "id": 3, "title": "C++ for all", "author": "Prof. SmartyPants", "publisher": "Tech book inc", "summary": "more stuff", "true": null }
-  ], // books
-  reviews: [
-    // { "review": "Sdf gfah dd gsdf", "rating": 4, "reviewer": "juste", "book_id" : 1},
-    // { "review": "Different Review Different Review Different Review Different Review Different Review Different Review Different Review Different Review Different Review Different Review Different Review Different Review ", "rating": 5, "reviewer": "other", "book_id" : 1},
-    // { "review": "Unique Review Unique Review Unique Review Unique Review Unique Review Unique Review Unique Review Unique Review Unique Review Unique Review Unique Review Unique Review Unique Review Unique Review ", "rating": 3, "reviewer": "another", "book_id" : 1},
-    // { "review": "Sdf gfah dd gsdf", "rating": 4, "reviewer": "juste", "book_id" : 2},
-    // { "review": "Different Review Different Review Different Review Different Review Different Review Different Review Different Review Different Review Different Review Different Review Different Review Different Review ", "rating": 5, "reviewer": "other", "book_id" : 2},
-    // { "review": "Unique Review Unique Review Unique Review Unique Review Unique Review Unique Review Unique Review Unique Review Unique Review Unique Review Unique Review Unique Review Unique Review Unique Review ", "rating": 3, "reviewer": "another", "book_id" : 2},
-    // { "review": "Sdf gfah dd gsdf", "rating": 4, "reviewer": "juste", "book_id" : 3},
-    // { "review": "Different Review Different Review Different Review Different Review Different Review Different Review Different Review Different Review Different Review Different Review Different Review Different Review ", "rating": 5, "reviewer": "other", "book_id" : 3},
-    // { "review": "Unique Review Unique Review Unique Review Unique Review Unique Review Unique Review Unique Review Unique Review Unique Review Unique Review Unique Review Unique Review Unique Review Unique Review ", "rating": 3, "reviewer": "another", "book_id" : 3},
-  ]
+  books: [],
+  reviews: []
 };
 
 const rootReducer = (state = initialState, action) => {
