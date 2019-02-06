@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import { getBooks, getReviews, logout } from '../../store/actions';
+import { getBooks, getReviews, addBook, logout } from '../../store/actions';
 
 import Home from '../../components/HomeComponents/Home';
 
@@ -22,6 +22,7 @@ function HomeView(props) {
         books={props.books}
         reviews={props.reviews}
         logout={props.logout}
+        addBook={props.addBook}
       />
     )
   } else {
@@ -45,6 +46,7 @@ export default connect(
   {
     getBooks,
     getReviews,
+    addBook,
     logout
   }
 )(HomeView);

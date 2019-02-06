@@ -6,6 +6,7 @@ import Grid from '@material-ui/core/Grid';
 
 import Nav from '../NavComponents/Nav';
 import BookCard from '../BooksComponents/BookCard';
+import AddBookForm from '../BooksComponents/AddBookForm';
 
 class Home extends React.Component {
 
@@ -46,6 +47,9 @@ class Home extends React.Component {
           alignItems="center"
         >
           {booksCards}
+          <AddBookForm 
+            addBook={this.props.addBook}
+          />
         </Grid>
       </div>
     );

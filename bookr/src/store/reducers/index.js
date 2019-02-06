@@ -11,6 +11,9 @@ import {
   FETCHING_BOOKS_START,
   FETCHING_BOOKS_SUCCESS,
   FETCHING_BOOKS_FAILURE,
+  ADDING_BOOK_START,
+  ADDING_BOOK_SUCCESS,
+  ADDING_BOOK_FAILURE,
   FETCHING_REVIEWS_START,
   FETCHING_REVIEWS_SUCCESS,
   FETCHING_REVIEWS_FAILURE,
@@ -28,12 +31,13 @@ const initialState = {
   isLoggingIn: false,
   isRegistering: false,
   isFetchingBooks: false,
+  isAddingBook: false,
   isFetchingReviews: false,
   isPostingReview: false,
   error: '',
   userName: user,
   books: [
-    { "id": 1, "title": "FirstBook", "author": "me", "publisher": "book inc", "summary": "stuff", "true": null }, { "id": 2, "title": "SecondBook", "author": "me", "publisher": "bookinc", "summary": null, "true": null }, { "id": 3, "title": "C++ for all", "author": "Prof. SmartyPants", "publisher": "Tech book inc", "summary": "more stuff", "true": null }
+    // { "id": 1, "title": "FirstBook", "author": "me", "publisher": "book inc", "summary": "stuff", "true": null }, { "id": 2, "title": "SecondBook", "author": "me", "publisher": "bookinc", "summary": null, "true": null }, { "id": 3, "title": "C++ for all", "author": "Prof. SmartyPants", "publisher": "Tech book inc", "summary": "more stuff", "true": null }
   ], // books
   reviews: [
     { "review": "Sdf gfah dd gsdf", "rating": 4, "reviewer": "juste", "book_id" : 1},
@@ -125,6 +129,23 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         isFetchingBooks: false,
+        error: action.payload
+      }
+    case ADDING_BOOK_START:
+      return {
+        ...state,
+        isAddingBook: true,
+        error: ''
+      }
+    case ADDING_BOOK_SUCCESS:
+      return {
+        ...state,
+        isAddingBook: false
+      }
+    case ADDING_BOOK_FAILURE:
+      return {
+        ...state,
+        isAddingBook: false,
         error: action.payload
       }
     case FETCHING_REVIEWS_START:

@@ -28,6 +28,13 @@ export {
 } from './booksActions';
 
 export {
+  ADDING_BOOK_START,
+  ADDING_BOOK_SUCCESS,
+  ADDING_BOOK_FAILURE,
+  addBook
+} from './booksActions';
+
+export {
   FETCHING_REVIEWS_START,
   FETCHING_REVIEWS_SUCCESS,
   FETCHING_REVIEWS_FAILURE,
