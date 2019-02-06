@@ -6,6 +6,7 @@ import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import Typography from '@material-ui/core/Typography';
 import CardMedia from '@material-ui/core/CardMedia';
+// import Grid from '@material-ui/core/Grid';
 
 import Review from '../ReviewsComponents/Review';
 
@@ -32,30 +33,30 @@ function BookCard(props) {
   }
 
   return (
-    <Link 
-      to={`/loggedin/book/${props.book.id}`}
-      style={{ textDecoration: 'none' }}
-    >
-      <Card raised >
-        <CardActionArea>
-          <Typography 
-            variant="h4" 
-            // style={{ fontFamily: 'aleo' }}
-          >
-            Title: {props.book.title}
-          </Typography>
-          <CardMedia
-            className={classes.media}
-            image={bookImg}
-            title={props.book.title}
-          />
-          <Typography variant="h6">By {props.book.author}</Typography>
-          <Typography variant="subtitle1">Published by {props.book.publisher}</Typography>
-          <Typography variant="body1">Summary: {props.book.summary}</Typography>
-          {reviews}
-        </CardActionArea>
-      </Card>
-    </Link>
+      <Link 
+        to={`/loggedin/book/${props.book.id}`}
+        style={{ textDecoration: 'none' }}
+      >
+        <Card raised >
+          <CardActionArea>
+            <Typography 
+              variant="h4" 
+              style={{ maxWidth: '400px' }}
+            >
+              Title: {props.book.title}
+            </Typography>
+            <CardMedia
+              className={classes.media}
+              image={bookImg}
+              title={props.book.title}
+            />
+            <Typography variant="h6">By {props.book.author}</Typography>
+            <Typography variant="subtitle1">Published by {props.book.publisher}</Typography>
+            <Typography variant="body1">Summary: {props.book.summary}</Typography>
+            {reviews}
+          </CardActionArea>
+        </Card>
+      </Link>
   )
 }
 

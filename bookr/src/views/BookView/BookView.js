@@ -19,6 +19,7 @@ function BookView(props) {
       book={book} 
       reviews={reviews} 
       postReview={props.postReview}
+      userName={props.userName}
     />
   );
 }
@@ -26,7 +27,8 @@ function BookView(props) {
 const mapStateToProps = state => {
   return {
     books: state.books,
-    reviews: state.reviews
+    reviews: state.reviews,
+    userName: state.userName
   }
 }
 

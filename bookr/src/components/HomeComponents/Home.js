@@ -18,10 +18,10 @@ class Home extends React.Component {
   render() {
     console.log("render in Home ", this.props.books);
     const booksCards = this.props.books.map(book => 
-      <BookCard 
-        key={book.id} 
-        book={book} 
-      /> );
+      <Grid key={book.id} item xs={4}>
+        <BookCard book={book} />
+      </Grid>
+      );
     
     return (
       <div className="Home">

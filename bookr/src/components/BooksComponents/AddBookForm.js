@@ -3,6 +3,7 @@ import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
+import Grid from '@material-ui/core/Grid';
 
 class AddBookForm extends React.Component {
   constructor(props) {
@@ -58,57 +59,59 @@ class AddBookForm extends React.Component {
 
   render() {
     return (
-      <Card>
-        <Typography 
-          variant="h4"
-          style={{ fontFamily: 'aleo' }}
-        >
-        Add a book
-        </Typography>
-        <form onSubmit={this.handleAddBook}>
-          <TextField
-            placeholder="Title"
-            name="titleInput"
-            value={this.state.titleInput}
-            onChange={this.handleInput}
-            autoComplete="off"
-            style={{ width: '100%' }}
-          />
-          <TextField
-            placeholder="Author"
-            name="authorInput"
-            value={this.state.authorInput}
-            onChange={this.handleInput}
-            autoComplete="off"
-            style={{ width: '100%' }}
-          />
-          <TextField
-            placeholder="Publisher"
-            name="publisherInput"
-            value={this.state.publisherInput}
-            onChange={this.handleInput}
-            autoComplete="off"
-            style={{ width: '100%' }}
-          />
-          <TextField
-            placeholder="Summary"
-            name="summaryInput"
-            value={this.state.summaryInput}
-            onChange={this.handleInput}
-            autoComplete="off"
-            style={{ width: '100%' }}
-            multiline
-          />
-          <Button 
-            type="submit" 
-            value="Add Book!"
-            disabled={this.state.inputInvalid}
-            color="primary"
+      <Grid item xs={4}>
+        <Card>
+          <Typography 
+            variant="h4"
+            style={{ fontFamily: 'aleo' }}
           >
-            Add Book!
-          </Button>
-        </form>
-      </Card>
+          Add a book
+          </Typography>
+          <form onSubmit={this.handleAddBook}>
+            <TextField
+              placeholder="Title"
+              name="titleInput"
+              value={this.state.titleInput}
+              onChange={this.handleInput}
+              autoComplete="off"
+              style={{ width: '100%' }}
+            />
+            <TextField
+              placeholder="Author"
+              name="authorInput"
+              value={this.state.authorInput}
+              onChange={this.handleInput}
+              autoComplete="off"
+              style={{ width: '100%' }}
+            />
+            <TextField
+              placeholder="Publisher"
+              name="publisherInput"
+              value={this.state.publisherInput}
+              onChange={this.handleInput}
+              autoComplete="off"
+              style={{ width: '100%' }}
+            />
+            <TextField
+              placeholder="Summary"
+              name="summaryInput"
+              value={this.state.summaryInput}
+              onChange={this.handleInput}
+              autoComplete="off"
+              style={{ width: '100%' }}
+              multiline
+            />
+            <Button 
+              type="submit" 
+              value="Add Book!"
+              disabled={this.state.inputInvalid}
+              color="primary"
+            >
+              Add Book!
+            </Button>
+          </form>
+        </Card>
+      </Grid>
     );
   }
 }
