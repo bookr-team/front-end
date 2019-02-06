@@ -1,7 +1,8 @@
 import React from 'react';
 import Button from '@material-ui/core/Button';
+import Card from '@material-ui/core/Card';
 import StarRatings from 'react-star-ratings';
-// import TextField from '@material-ui/core/TextField';
+import TextField from '@material-ui/core/TextField';
 
 class ReviewForm extends React.Component {
   constructor(props) {
@@ -54,24 +55,8 @@ class ReviewForm extends React.Component {
 
   render() {
     return (
-      <>
+      <Card>
         <form onSubmit={this.handlePostReview}>
-          {/* <input
-            type="number"
-            name="ratingInput"
-            value={this.state.ratingInput}
-            onChange={this.handleInput}
-          /> */}
-          {/* <img alt="" src={starFilled}></img> */}
-          {/* <Rating
-            style={{ width: "150px", height: "40px", backgroundColor: "red" }}
-            start={0}
-            stop={0}
-            step={1}
-            initialRating={0}
-            // emptySymbol={starOutline}
-            // fullSymbol={starFilled}
-          /> */}
           <StarRatings 
             rating={this.state.ratingInput}
             starEmptyColor="rgb(223,220,227" // #dfdce3
@@ -80,13 +65,17 @@ class ReviewForm extends React.Component {
             changeRating={this.handleRatingChange}
             numberOfStars={5}
             name="ratingInput"
+            starDimension="35px"
+            starSpacing="4px"
           />
-          <textarea
+          <TextField
             placeholder="Write a review..."
             name="reviewInput"
             value={this.state.reviewInput}
             onChange={this.handleInput}
             autoComplete="off"
+            multiline
+            style={{ width: '100%' }}
           />
           <Button 
             type="submit" 
@@ -97,7 +86,7 @@ class ReviewForm extends React.Component {
             Post Review!
           </Button>
         </form>
-      </>
+      </Card>
     );
   }
 }

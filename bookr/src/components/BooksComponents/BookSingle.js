@@ -6,7 +6,7 @@ import ReviewForm from '../ReviewsComponents/ReviewForm';
 
 function BookSingle(props) {
   return (
-    <>
+    <div style={{ maxWidth: '40%', margin: '0 auto'}}>
       <Link to="/loggedin">Back to books</Link>
       <BookCard 
         book={props.book}
@@ -17,7 +17,7 @@ function BookSingle(props) {
         bookID={props.book.id}
         postReview={props.postReview}
       />
-    </>
+    </div>
   )
 }
 
