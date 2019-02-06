@@ -24,14 +24,23 @@ const store = createStore(
 
 const theme = createMuiTheme({
   palette: {
-    primary: blue,
+    primary: {
+      main: '#53bdad' // teal
+    },
     secondary: {
-      main: '#f44336',
+      light: '#f7be4d', // yellow
+      main: '#fc5e32', // orange
+      contrastText: '#dfdce3' // gray
     },
   },
   typography: {
     useNextVariants: true,
-  },
+    fontFamily: [
+      '"Open Sans"',
+    ].join(','),
+  },overrides: {
+
+  }
 });
 
 // wrapping App this way enables MuiThemeProvider

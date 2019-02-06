@@ -20,8 +20,20 @@ class Home extends React.Component {
     
     return (
       <div className="Home">
-        <Button name="logout" color="primary" onClick={this.handleLogout}>Log Out</Button>
-        <Typography variant="h2">Welcome to BOOKR, {this.props.userName}</Typography>
+        <Button 
+          name="logout" 
+          color="primary" 
+          style={{ fontFamily: 'aleo' }}
+          onClick={this.handleLogout}
+        >
+          Log Out
+        </Button>
+        <Typography 
+          variant="h2"
+          style={{ fontFamily: 'aleo' }}
+        >
+          Welcome to BOOKR, {this.props.userName}
+        </Typography>
         <Grid 
           container 
           direction="row"

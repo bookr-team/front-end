@@ -10,7 +10,12 @@ function BookCard(props) {
       style={{ textDecoration: 'none' }}
     >
       <Card raised>
-        <Typography variant="h4">Title: {props.book.title}</Typography>
+        <Typography 
+          variant="h4" 
+          // style={{ fontFamily: 'aleo' }}
+        >
+          Title: {props.book.title}
+        </Typography>
         <Typography variant="h6">By {props.book.author}</Typography>
         <Typography variant="subtitle1">Published by {props.book.publisher}</Typography>
         <Typography variant="body1">Summary: {props.book.summary}</Typography>
