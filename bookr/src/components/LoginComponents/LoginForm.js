@@ -1,6 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router';
 import { Link } from 'react-router-dom';
+import Button from '@material-ui/core/Button';
 
 class LoginForm extends React.Component {
   constructor() {
@@ -81,13 +82,13 @@ class LoginForm extends React.Component {
             onChange={this.handleInput}
             autoComplete="off"
           />
-          <button 
+          <Button 
             type="submit" 
             value="Login" 
             disabled={this.state.inputInvalid}
           >
             Log In
-          </button>
+          </Button>
           <Link to="/register">Register</Link>
         </form>
       </>
