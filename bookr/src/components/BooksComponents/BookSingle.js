@@ -7,7 +7,10 @@ function BookSingle(props) {
   return (
     <>
       <Link to="/loggedin">Back to books</Link>
-      <BookCard book={props.book} />
+      <BookCard 
+        book={props.book}
+        reviews={props.reviews}
+      />
     </>
   )
 }

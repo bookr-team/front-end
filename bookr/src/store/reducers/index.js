@@ -11,6 +11,9 @@ import {
   FETCHING_BOOKS_START,
   FETCHING_BOOKS_SUCCESS,
   FETCHING_BOOKS_FAILURE,
+  FETCHING_REVIEWS_START,
+  FETCHING_REVIEWS_SUCCESS,
+  FETCHING_REVIEWS_FAILURE,
 } from '../actions';
 
 const user = localStorage.getItem('bookrUser'); // todo: udpdate to token.
@@ -22,40 +25,22 @@ const initialState = {
   isLoggingIn: false,
   isRegistering: false,
   isFetchingBooks: false,
+  isFetchingReviews: false,
   error: '',
   userName: user,
   books: [
     { "id": 1, "title": "FirstBook", "author": "me", "publisher": "book inc", "summary": "stuff", "true": null }, { "id": 2, "title": "SecondBook", "author": "me", "publisher": "bookinc", "summary": null, "true": null }, { "id": 3, "title": "C++ for all", "author": "Prof. SmartyPants", "publisher": "Tech book inc", "summary": "more stuff", "true": null }
-    // {
-    //   title: 'Test book1',
-    //   author: 'Test author 1',
-    //   publisher: 'Test publisher1',
-    //   reviews: [
-    //     {
-    //         reviewer: 'Test reviewer 1',
-    //         review: 'this is a good test review 1'
-    //     },
-    //     {
-    //       reviewer: 'Test reviewer 2',
-    //       review: 'this is a good test review 2'
-    //     }
-    //   ]
-    // },
-    // {
-    //   title: 'Test book2',
-    //   author: 'Test author 2',
-    //   publisher: 'Test publisher2',
-    //   reviews: [
-    //     {
-    //         reviewer: 'Test reviewer 1',
-    //         review: 'this is a good test review 3'
-    //     },
-    //     {
-    //       reviewer: 'Test reviewer 2',
-    //       review: 'this is a good test review 4'
-    //     }
-    //   ]
-    // }
+  ], // books
+  reviews: [
+    { "review": "Sdf gfah dd gsdf", "rating": 4, "reviewer": "juste", "book_id" : 1},
+    { "review": "Different Review Different Review Different Review Different Review Different Review Different Review Different Review Different Review Different Review Different Review Different Review Different Review ", "rating": 5, "reviewer": "other", "book_id" : 1},
+    { "review": "Unique Review Unique Review Unique Review Unique Review Unique Review Unique Review Unique Review Unique Review Unique Review Unique Review Unique Review Unique Review Unique Review Unique Review ", "rating": 3, "reviewer": "another", "book_id" : 1},
+    { "review": "Sdf gfah dd gsdf", "rating": 4, "reviewer": "juste", "book_id" : 2},
+    { "review": "Different Review Different Review Different Review Different Review Different Review Different Review Different Review Different Review Different Review Different Review Different Review Different Review ", "rating": 5, "reviewer": "other", "book_id" : 2},
+    { "review": "Unique Review Unique Review Unique Review Unique Review Unique Review Unique Review Unique Review Unique Review Unique Review Unique Review Unique Review Unique Review Unique Review Unique Review ", "rating": 3, "reviewer": "another", "book_id" : 2},
+    { "review": "Sdf gfah dd gsdf", "rating": 4, "reviewer": "juste", "book_id" : 3},
+    { "review": "Different Review Different Review Different Review Different Review Different Review Different Review Different Review Different Review Different Review Different Review Different Review Different Review ", "rating": 5, "reviewer": "other", "book_id" : 3},
+    { "review": "Unique Review Unique Review Unique Review Unique Review Unique Review Unique Review Unique Review Unique Review Unique Review Unique Review Unique Review Unique Review Unique Review Unique Review ", "rating": 3, "reviewer": "another", "book_id" : 3},
   ]
 };
 
@@ -136,6 +121,24 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         isFetchingBooks: false,
+        error: action.payload
+      }
+      case FETCHING_REVIEWS_START:
+      return {
+        ...state,
+        isFetchingReviews: true,
+        error: ''
+      }
+    case FETCHING_REVIEWS_SUCCESS:
+      return {
+        ...state,
+        isFetchingReviews: false,
+        books: action.payload
+      }
+    case FETCHING_REVIEWS_FAILURE:
+      return {
+        ...state,
+        isFetchingReviews: false,
         error: action.payload
       }
     default: 

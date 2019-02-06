@@ -15,5 +15,6 @@ export const getBooks = () => dispatch => {
     })
     .catch( err => {
       console.log(err);
+      dispatch({ type: FETCHING_BOOKS_SUCCESS, payload: err.data});
     })
 }

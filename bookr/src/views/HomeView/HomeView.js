@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import { getBooks, logout } from '../../store/actions';
+import { getBooks, getReviews, logout } from '../../store/actions';
 
 import Home from '../../components/HomeComponents/Home';
 
@@ -13,10 +13,14 @@ function HomeView(props) {
     if (props.books.length === 0) {
       props.getBooks();  // if successful, props.books = [books here!]
     }
+    if (props.reviews.length === 0) {
+      props.getReviews();
+    }
     return (
       <Home 
         userName={props.userName}
         books={props.books}
+        reviews={props.reviews}
         logout={props.logout}
       />
     )
@@ -30,6 +34,7 @@ function HomeView(props) {
 const mapStateToProps = state => {
   return {
     books: state.books,
+    reviews: state.reviews,
     userName: state.userName,
     isLoggedIn: state.isLoggedIn
   }
@@ -39,6 +44,7 @@ export default connect(
   mapStateToProps,
   {
     getBooks,
+    getReviews,
     logout
   }
 )(HomeView);

@@ -26,3 +26,10 @@ export {
   FETCHING_BOOKS_FAILURE,
   getBooks
 } from './booksActions';
+
+export {
+  FETCHING_REVIEWS_START,
+  FETCHING_REVIEWS_SUCCESS,
+  FETCHING_REVIEWS_FAILURE,
+  getReviews
+} from './reviewsActions';

@@ -1,6 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router';
-import Button from '@material-ui/core/Button';
+// import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 
@@ -17,7 +17,10 @@ class Home extends React.Component {
   render() {
     console.log("render in Home ", this.props.books);
     const booksCards = this.props.books.map(book => 
-      <BookCard key={book.id} book={book} /> );
+      <BookCard 
+        key={book.id} 
+        book={book} 
+      /> );
     
     return (
       <div className="Home">

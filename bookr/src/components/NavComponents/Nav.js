@@ -14,7 +14,7 @@ function Nav(props) {
       justify="space-between"
       alignItems="flex-start">
       <Grid>
-        <img src={bookrLogo} style={{ height: '60px' }}/>
+        <img src={bookrLogo} alt="Bookr Home" style={{ height: '60px' }}/>
       </Grid>
       <Grid item xs={8}>
         <nav>

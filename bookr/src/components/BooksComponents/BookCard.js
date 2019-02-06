@@ -6,6 +6,9 @@ import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import Typography from '@material-ui/core/Typography';
 import CardMedia from '@material-ui/core/CardMedia';
+
+import Review from '../ReviewsComponents/Review';
+
 import bookImg from '../../img/sophia-baboolal-86224-unsplash.jpg';
 
 // https://material-ui.com/demos/cards/
@@ -22,6 +25,11 @@ const styles = {
 function BookCard(props) {
 
   const { classes } = props;
+  let reviews = "";
+  if(props.reviews) {
+    console.log(props.reviews);
+    reviews = props.reviews.map(review => <Review key={review.reviewer} review={review} />)
+  }
 
   return (
     <Link 
@@ -44,6 +52,7 @@ function BookCard(props) {
           <Typography variant="h6">By {props.book.author}</Typography>
           <Typography variant="subtitle1">Published by {props.book.publisher}</Typography>
           <Typography variant="body1">Summary: {props.book.summary}</Typography>
+          {reviews}
         </CardActionArea>
       </Card>
     </Link>
