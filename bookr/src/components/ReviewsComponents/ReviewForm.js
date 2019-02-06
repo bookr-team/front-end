@@ -4,15 +4,19 @@ import Card from '@material-ui/core/Card';
 import StarRatings from 'react-star-ratings';
 import TextField from '@material-ui/core/TextField';
 
+const emptyReviewForm = {
+  ratingInput: 0,
+  reviewInput: "",
+  inputInvalid: true
+}
+
 class ReviewForm extends React.Component {
   constructor(props) {
     super();
     this.state = {
+      ...emptyReviewForm,
       reviewer: props.userName,
-      ratingInput: 0,
-      reviewInput: "",
       bookID: props.bookID,
-      inputInvalid: true
     }
   }
 
@@ -50,7 +54,11 @@ class ReviewForm extends React.Component {
     }
     catch(err) {
       console.log(err);
+      return;
     }
+    this.setState({
+      ...emptyReviewForm
+    });
   }
 
   render() {

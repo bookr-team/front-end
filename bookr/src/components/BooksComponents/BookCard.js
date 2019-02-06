@@ -43,7 +43,7 @@ function BookCard(props) {
               variant="h4" 
               style={{ maxWidth: '400px' }}
             >
-              Title: {props.book.title}
+              {props.book.title}
             </Typography>
             <CardMedia
               className={classes.media}

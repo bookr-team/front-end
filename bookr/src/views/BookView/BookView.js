@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { postReview } from '../../store/actions';
+import { postReview, getReviews } from '../../store/actions';
 
 import BookSingle from  '../../components/BooksComponents/BookSingle';
 
@@ -13,6 +13,9 @@ function BookView(props) {
   // console.log(book);
   const reviews = props.reviews.filter(review => review.books_id === book.id);
   // console.log("BookView, Reviews: ", reviews);
+  if(!props.hasLatestReviews) {
+    props.getReviews();
+  }
 
   return (
     <BookSingle 
@@ -20,6 +23,7 @@ function BookView(props) {
       reviews={reviews} 
       postReview={props.postReview}
       userName={props.userName}
+      hasLatestReviews={props.hasLatestReviews}
     />
   );
 }
@@ -28,13 +32,16 @@ const mapStateToProps = state => {
   return {
     books: state.books,
     reviews: state.reviews,
-    userName: state.userName
+    hasLatestReviews: state.hasLatestReviews,
+    userName: state.userName,
+    isLoggedIn: state.isLoggedIn
   }
 }
 
 export default connect(
   mapStateToProps,
   {
-    postReview
+    postReview,
+    getReviews
   }
 )(BookView);

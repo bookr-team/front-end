@@ -34,6 +34,8 @@ const initialState = {
   isAddingBook: false,
   isFetchingReviews: false,
   isPostingReview: false,
+  hasLatestBooks: false,
+  hasLatestReviews: false,
   error: '',
   userName: user,
   books: [],
@@ -111,12 +113,14 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         isFetchingBooks: false,
+        hasLatestBooks: true,
         books: action.payload
       }
     case FETCHING_BOOKS_FAILURE:
       return {
         ...state,
         isFetchingBooks: false,
+        hasLatestBooks: false,
         error: action.payload
       }
     case ADDING_BOOK_START:
@@ -128,7 +132,8 @@ const rootReducer = (state = initialState, action) => {
     case ADDING_BOOK_SUCCESS:
       return {
         ...state,
-        isAddingBook: false
+        isAddingBook: false,
+        hasLatestBooks: false
       }
     case ADDING_BOOK_FAILURE:
       return {
@@ -146,12 +151,14 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         isFetchingReviews: false,
+        hasLatestReviews: true,
         reviews: action.payload
       }
     case FETCHING_REVIEWS_FAILURE:
       return {
         ...state,
         isFetchingReviews: false,
+        hasLatestReviews: false,
         error: action.payload
       }
     case POSTING_REVIEW_START:
@@ -163,12 +170,14 @@ const rootReducer = (state = initialState, action) => {
     case POSTING_REVIEW_SUCCESS:
       return {
         ...state,
-        isPostingReview: false
+        isPostingReview: false,
+        hasLatestReviews: false,
       }
     case POSTING_REVIEW_FAILURE:
       return {
         ...state,
         isPostingReview: false,
+        hasLatestReviews: false,
         error: action.payload
       }
     default: 

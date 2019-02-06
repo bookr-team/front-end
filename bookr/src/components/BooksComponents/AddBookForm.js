@@ -5,15 +5,19 @@ import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 
+const emptyBookForm = {
+  titleInput: "",
+  authorInput: "",
+  publisherInput: "",
+  summaryInput: "",
+  inputInvalid: true
+}
+
 class AddBookForm extends React.Component {
   constructor(props) {
     super();
     this.state = {
-      titleInput: "",
-      authorInput: "",
-      publisherInput: "",
-      summaryInput: "",
-      inputInvalid: true
+      ...emptyBookForm,
     }
   }
 
@@ -54,7 +58,11 @@ class AddBookForm extends React.Component {
     }
     catch(err) {
       console.log(err);
+      return;
     }
+    this.setState({
+      ...emptyBookForm
+    });
   }
 
   render() {
