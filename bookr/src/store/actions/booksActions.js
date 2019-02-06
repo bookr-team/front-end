@@ -10,7 +10,7 @@ export const getBooks = () => dispatch => {
   demoAPI
     .get("books")
     .then( res => {
-      console.log(typeof(res.data));
+      console.log("GET books success", res.data);
       dispatch({ type: FETCHING_BOOKS_SUCCESS, payload: res.data})
     })
     .catch( err => {

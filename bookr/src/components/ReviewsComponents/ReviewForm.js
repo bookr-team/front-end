@@ -41,7 +41,7 @@ class ReviewForm extends React.Component {
       review: this.state.reviewInput,
       rating: parseInt(this.state.ratingInput),
       reviewer: this.state.reviewer,
-      book_id: this.state.bookID
+      books_id: this.state.bookID
     };
     try {
       console.log("post review: ", reviewData);

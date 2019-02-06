@@ -26,13 +26,13 @@ export const postReview = (reviewData) => dispatch => {
   console.log("POST review action: ", reviewData);
   dispatch({ type: POSTING_REVIEW_START, payload: reviewData });
   demoAPI
-  .post("reviews", reviewData)
-  .then( res => {
-    console.log("post review success: ", res.data);
-    dispatch({ type: POSTING_REVIEW_SUCCESS });
-  })
-  .catch( err => {
-    console.log("post review failure: ", err.data);
-    dispatch({ type: POSTING_REVIEW_FAILURE });
-  })
+    .post("reviews", reviewData)
+    .then( res => {
+      console.log("post review success: ", res.data);
+      dispatch({ type: POSTING_REVIEW_SUCCESS });
+    })
+    .catch( err => {
+      console.log("post review failure: ", err);
+      dispatch({ type: POSTING_REVIEW_FAILURE });
+    });
 }
