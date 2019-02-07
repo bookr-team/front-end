@@ -19,11 +19,13 @@ a:hover {
 
 .nav-container {
   position: absolute;
+  z-index: 5;
   width: 100%;
 }
 
 .main-container {
   min-height: 100vh;
+  padding: 104px 0 134px 0; /* height of nav on top, footer on bottom */
   overflow: hidden;
   display: block;
   position: relative;

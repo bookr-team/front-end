@@ -67,8 +67,8 @@ class AddBookForm extends React.Component {
 
   render() {
     return (
-      <Grid item xs={4}>
-        <Card>
+      <Grid>
+        <Card style={{ padding: '20px' }}>
           <Typography 
             variant="h4"
             style={{ fontFamily: 'aleo' }}

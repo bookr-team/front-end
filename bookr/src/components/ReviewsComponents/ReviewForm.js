@@ -63,7 +63,7 @@ class ReviewForm extends React.Component {
 
   render() {
     return (
-      <Card>
+      <Card style={{ padding: '20px' }}>
         <form onSubmit={this.handlePostReview}>
           <StarRatings 
             rating={this.state.ratingInput}

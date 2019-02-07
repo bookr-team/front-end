@@ -33,7 +33,7 @@ class BookSingle extends React.Component {
   render() {
 
     const modalStyle = {
-      transform: `translate(100%, 100%)`,
+      transform: `translate(60vh, 30vh)`,
       width: `33%`
     };
 

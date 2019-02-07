@@ -21,7 +21,7 @@ function HomeView(props) {
       <>
         <Typography 
           variant="h4"
-          style={{ fontFamily: 'aleo', margin: '20px' }}
+          style={{ fontFamily: 'aleo', margin: '20px 20px 0 20px' }}
         >
           Welcome to BOOKR, {props.userName}
         </Typography>
