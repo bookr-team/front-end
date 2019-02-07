@@ -18,15 +18,7 @@ class Home extends React.Component {
       );
     
     return (
-      <div className="Home">
-        {/* <Button 
-          name="logout" 
-          color="primary" 
-          style={{ fontFamily: 'aleo' }}
-          onClick={this.handleLogout}
-        >
-          Log Out
-        </Button> */}
+      <div className="Home" style={{padding: "20px 60px" }}>
         <Typography 
           variant="h4"
           style={{ fontFamily: 'aleo' }}
@@ -37,7 +29,7 @@ class Home extends React.Component {
           container 
           direction="row"
           justify="space-evenly"
-          alignItems="center"
+          alignItems="flex-start"
         >
           {booksCards}
           <AddBookForm 

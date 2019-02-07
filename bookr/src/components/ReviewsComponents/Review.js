@@ -7,7 +7,7 @@ import StarRatings from 'react-star-ratings';
 function Review(props) {
 
   return(
-    <Card>
+    <Card style={{ margin: '15px 0'}}>
       <CardContent>
         <Typography 
           variant="h6" 
