@@ -12,6 +12,7 @@ import {
 
 // import auth from './components/auth/auth';
 import Nav from './components/NavComponents/Nav';
+import Footer from './components/FooterComponents/Footer';
 import BookView from './views/BookView/BookView';
 import HomeView from './views/HomeView/HomeView';
 import SettingsView from './views/SettingsView/SettingsView';
@@ -66,13 +67,14 @@ class App extends React.Component {
             path="/loggedin/book/:id" 
             render={props => (
               <BookView
-                {...props}
-                delete={this.delete}
+              {...props}
+              delete={this.delete}
               />
-            )}
+              )}
           />
           <Route path="/settings" component={SettingsView} />
           {/* <ConditionalRender />  */}
+          <Footer handleLogout={this.handleLogout}></Footer>
         </div>
     );
   }
