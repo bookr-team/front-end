@@ -38,7 +38,7 @@ function BookCard(props) {
         style={{ textDecoration: 'none' }}
       >
         <Card raised >
-          <CardActionArea>
+          {/* <CardActionArea> */}
             <Typography 
               variant="h4" 
               style={{ maxWidth: '400px' }}
@@ -54,7 +54,7 @@ function BookCard(props) {
             <Typography variant="subtitle1">Published by {props.book.publisher}</Typography>
             <Typography variant="body1">Summary: {props.book.summary}</Typography>
             {reviews}
-          </CardActionArea>
+          {/* </CardActionArea> */}
         </Card>
       </Link>
   )

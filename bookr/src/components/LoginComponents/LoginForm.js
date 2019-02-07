@@ -89,11 +89,11 @@ class LoginForm extends React.Component {
             disabled={this.state.inputInvalid}
           >
             {this.props.isLoggingIn ? 
-            <CircularProgress color="accent" />
+            <CircularProgress color="primary" />
             : "Log In"}
           </Button>
           <Link to="/register">
-            <Button color="accent">
+            <Button color="primary">
               Register
             </Button>
           </Link>
