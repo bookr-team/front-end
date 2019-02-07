@@ -14,9 +14,10 @@ import {
 import Nav from './components/NavComponents/Nav';
 import BookView from './views/BookView/BookView';
 import HomeView from './views/HomeView/HomeView';
+import SettingsView from './views/SettingsView/SettingsView';
 import Landing from './Landing';
-import LoginView from './views/LoginView/LoginView';
-import RegisterView from './views/RegisterView/RegisterView';
+// import LoginView from './views/LoginView/LoginView';
+// import RegisterView from './views/RegisterView/RegisterView';
 import LoginRegisterView from './views/LoginRegisterView/LoginRegisterView';
 
 import './App.css';
@@ -70,6 +71,7 @@ class App extends React.Component {
               />
             )}
           />
+          <Route path="/settings" component={SettingsView} />
           {/* <ConditionalRender />  */}
         </div>
     );
