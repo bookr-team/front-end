@@ -31,6 +31,7 @@ class App extends React.Component {
     // need to undo cond'l render in BookCard if so
     console.log("delete");
     this.props.deleteBook(id);
+    this.props.history.push('/loggedin');
   }
 
   render () {
