@@ -6,6 +6,9 @@ export const FETCHING_BOOKS_FAILURE = 'FETCHING_BOOKS_FAILURE';
 export const ADDING_BOOK_START = 'ADDING_BOOK_START';
 export const ADDING_BOOK_SUCCESS = 'ADDING_BOOK_SUCCESS';
 export const ADDING_BOOK_FAILURE = 'ADDING_BOOK_FAILURE';
+export const DELETING_BOOK_START = 'DELETING_BOOK_START';
+export const DELETING_BOOK_SUCCESS = 'DELETING_BOOK_SUCCESS';
+export const DELETING_BOOK_FAILURE = 'DELETING_BOOK_FAILURE';
 
 export const getBooks = () => dispatch => {
   console.log("GET books action");
@@ -35,4 +38,19 @@ export const addBook = (bookData) => dispatch => {
       console.log("add book failure: ", err);
       dispatch({ type: ADDING_BOOK_FAILURE });
     });
+}
+
+export const deleteBook = (id) => dispatch => {
+  console.log("delete book action: ", id);
+  dispatch({ type: DELETING_BOOK_START, payload: id });
+  // demoAPI
+  //   .delete(`books/${id}`)
+  //   .then( res => {
+  //     console.log("delete book success: ", res.data);
+  //     dispatch({ type: DELETING_BOOK_SUCCESS });
+  //   })
+  //   .catch( err => {
+  //     console.log("delete book failure: ", err);
+  //     dispatch({ type: DELETING_BOOK_FAILURE });
+  //   })
 }

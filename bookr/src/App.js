@@ -3,7 +3,11 @@ import { connect } from 'react-redux';
 import { Route } from 'react-router-dom'; // Switch
 import { withRouter } from 'react-router';
 
-import { checkCurrentLogin, logout } from './store/actions';
+import { 
+  checkCurrentLogin, 
+  deleteBook,
+  logout 
+} from './store/actions';
 
 // import auth from './components/auth/auth';
 import Nav from './components/NavComponents/Nav';
@@ -22,10 +26,11 @@ class App extends React.Component {
     this.props.history.push('/login');
   }
 
-  delete = () => {
+  delete = (id, type) => {
     // putting this in App in case we want it to be available to HomeView as well. 
     // need to undo cond'l render in BookCard if so
     console.log("delete");
+    this.props.deleteBook(id);
   }
 
   render () {
@@ -73,5 +78,9 @@ const mapStateToProps = state => ({
 
 export default withRouter(connect(
   mapStateToProps,
-  { checkCurrentLogin, logout }
+  { 
+    checkCurrentLogin, 
+    deleteBook, 
+    logout 
+  }
 )(App));

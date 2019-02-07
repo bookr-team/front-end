@@ -32,7 +32,7 @@ function BookCard(props) {
   let reviews = "";
   if(props.reviews) {
     console.log("BookCard reviews: ", props.reviews);
-    reviews = props.reviews.map(review => <Review key={review.reviewer} review={review} />)
+    reviews = props.reviews.map(review => <Review key={review.id} review={review} />)
   }
 
   return (
@@ -44,7 +44,7 @@ function BookCard(props) {
       >
         {props.location.pathname !== '/loggedin' && 
           <IconButton 
-            onClick={props.delete}
+            onClick={() => props.delete(props.book.id, "book")}
             style={{ margin: "-20px -20px -20px 0"}}
           >
           {/* color="#dfdce3" */}

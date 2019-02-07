@@ -35,6 +35,13 @@ export {
 } from './booksActions';
 
 export {
+  DELETING_BOOK_START,
+  DELETING_BOOK_SUCCESS,
+  DELETING_BOOK_FAILURE,
+  deleteBook
+} from './booksActions';
+
+export {
   FETCHING_REVIEWS_START,
   FETCHING_REVIEWS_SUCCESS,
   FETCHING_REVIEWS_FAILURE,

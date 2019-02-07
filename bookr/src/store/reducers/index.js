@@ -14,6 +14,9 @@ import {
   ADDING_BOOK_START,
   ADDING_BOOK_SUCCESS,
   ADDING_BOOK_FAILURE,
+  DELETING_BOOK_START,
+  DELETING_BOOK_SUCCESS,
+  DELETING_BOOK_FAILURE,
   FETCHING_REVIEWS_START,
   FETCHING_REVIEWS_SUCCESS,
   FETCHING_REVIEWS_FAILURE,
@@ -32,6 +35,7 @@ const initialState = {
   isRegistering: false,
   isFetchingBooks: false,
   isAddingBook: false,
+  isDeletingBook: false,
   isFetchingReviews: false,
   isPostingReview: false,
   hasLatestBooks: false,
@@ -139,6 +143,24 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         isAddingBook: false,
+        error: action.payload
+      }
+    case DELETING_BOOK_START:
+      return {
+        ...state,
+        isDeletingBook: true,
+        error: ''
+      }
+    case DELETING_BOOK_SUCCESS:
+      return {
+        ...state,
+        isDeletingBook: false,
+        hasLatestBooks: false
+      }
+    case DELETING_BOOK_FAILURE:
+      return {
+        ...state,
+        isDeletingBook: false,
         error: action.payload
       }
     case FETCHING_REVIEWS_START:
