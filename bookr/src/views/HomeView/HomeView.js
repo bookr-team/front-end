@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import Typography from '@material-ui/core/Typography';
 
 import { getBooks, getReviews, addBook } from '../../store/actions';
 
@@ -17,14 +18,24 @@ function HomeView(props) {
       props.getReviews();
     }
     return (
-      <Home 
-        userName={props.userName}
-        books={props.books}
-        reviews={props.reviews}
-        logout={props.logout}
-        addBook={props.addBook}
-        delete={props.delete}
-      />
+      <>
+        <Typography 
+          variant="h4"
+          style={{ fontFamily: 'aleo', margin: '20px' }}
+        >
+          Welcome to BOOKR, {props.userName}
+        </Typography>
+        <Home 
+          userName={props.userName}
+          books={props.books}
+          reviews={props.reviews}
+          logout={props.logout}
+          addBook={props.addBook}
+          delete={props.delete}
+          isFetchingBooks={props.isFetchingBooks}
+          isFetchingReviews={props.isFetchingReviews}
+        />
+      </>
     )
   } else {
     return (
@@ -41,6 +52,8 @@ const mapStateToProps = state => {
     hasLatestReviews: state.hasLatestReviews,
     userName: state.userName,
     isLoggedIn: state.isLoggedIn,
+    isFetchingBooks: state.isFetchingBooks,
+    isFetchingReviews: state.isFetchingReviews
   }
 }
 

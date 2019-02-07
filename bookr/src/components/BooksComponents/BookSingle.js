@@ -6,8 +6,6 @@ import Modal from '@material-ui/core/Modal';
 import IconButton from '@material-ui/core/IconButton';
 import AddIcon from '@material-ui/icons/Add';
 import Typography from '@material-ui/core/Typography';
-import LinearProgress from '@material-ui/core/LinearProgress';
-import { withStyles } from '@material-ui/core/styles';
 
 import BookCard from './BookCard';
 import ReviewForm from '../ReviewsComponents/ReviewForm';
@@ -23,7 +21,6 @@ class BookSingle extends React.Component {
       reviewModal: false
     }
   }
-  
 
   handleOpen = () => {
     this.setState({ reviewModal: true });
@@ -40,14 +37,11 @@ class BookSingle extends React.Component {
       width: `33%`
     };
 
-    const stylesLinearProgress = {
-      root: {
-        flexGrow: 1,
-      },
-    };
+    console.log("fetching books: ", this.props.isFetchingBooks);
+    console.log("fetching reviews: ", this.props.isFetchingReviews);
 
-    if(this.props.book) {
-      // only render if we have a book
+    if(!this.props.isFetchingBooks && !this.props.isFetchingReviews) {
+      // only render if we have a book & reviews
       return (
         <Grid
           container
@@ -68,6 +62,8 @@ class BookSingle extends React.Component {
               book={this.props.book}
               reviews={this.props.reviews}
               delete={this.props.delete}
+              isFetchingBooks={this.props.isFetchingBooks}
+              isFetchingReviews={this.props.isFetchingReviews}
             />
             <IconButton color="primary" onClick={this.handleOpen}>
               <AddIcon />
@@ -95,18 +91,8 @@ class BookSingle extends React.Component {
           </Grid>
         </Grid>
       );
-    } else {
-      const LinearIndeterminate = (props) => {
-        const { classes } = props;
-        return (
-          <div className={classes.root}>
-            <LinearProgress />
-            <br />
-            <LinearProgress color="secondary" />
-          </div>
-        );
-      }
-      return withStyles(stylesLinearProgress)(LinearIndeterminate);
+    } else {  
+      return "";
     }
   }
 }
