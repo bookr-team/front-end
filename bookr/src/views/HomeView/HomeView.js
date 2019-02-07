@@ -39,7 +39,7 @@ function HomeView(props) {
     )
   } else {
     return (
-      <Link to="/login">LOG IN!!</Link>
+      <Link to="/login" className="login-notice">LOG IN!!</Link>
     )
   }
 }

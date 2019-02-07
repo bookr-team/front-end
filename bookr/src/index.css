@@ -34,3 +34,11 @@ a:hover {
   bottom: 0;
   width: 100%;
 }
+
+.login-notice {
+  position: fixed;
+  top: 30%;
+  left: 30%;
+  font-family: 'Aleo';
+  font-size: 2rem;
+}

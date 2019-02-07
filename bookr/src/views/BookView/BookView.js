@@ -43,7 +43,7 @@ function BookView(props) {
   } else {
   // not logged in:
     return (
-      <Link to="/login">LOG IN!!</Link>
+      <Link to="/login" className="login-notice">LOG IN!!</Link>
     )
   }
 }
