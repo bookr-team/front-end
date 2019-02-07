@@ -43,14 +43,14 @@ export const addBook = (bookData) => dispatch => {
 export const deleteBook = (id) => dispatch => {
   console.log("delete book action: ", id);
   dispatch({ type: DELETING_BOOK_START, payload: id });
-  // demoAPI
-  //   .delete(`books/${id}`)
-  //   .then( res => {
-  //     console.log("delete book success: ", res.data);
-  //     dispatch({ type: DELETING_BOOK_SUCCESS });
-  //   })
-  //   .catch( err => {
-  //     console.log("delete book failure: ", err);
-  //     dispatch({ type: DELETING_BOOK_FAILURE });
-  //   })
+  demoAPI
+    .delete(`books/${id}`)
+    .then( res => {
+      console.log("delete book success: ", res.data);
+      dispatch({ type: DELETING_BOOK_SUCCESS });
+    })
+    .catch( err => {
+      console.log("delete book failure: ", err);
+      dispatch({ type: DELETING_BOOK_FAILURE });
+    })
 }
