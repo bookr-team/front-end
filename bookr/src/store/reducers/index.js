@@ -23,6 +23,9 @@ import {
   POSTING_REVIEW_START,
   POSTING_REVIEW_SUCCESS,
   POSTING_REVIEW_FAILURE,
+  DELETING_REVIEW_START,
+  DELETING_REVIEW_SUCCESS,
+  DELETING_REVIEW_FAILURE,
 } from '../actions';
 
 const user = localStorage.getItem('bookrUser'); // todo: udpdate to token.
@@ -38,6 +41,7 @@ const initialState = {
   isDeletingBook: false,
   isFetchingReviews: true,
   isPostingReview: false,
+  isDeletingReview: false,
   hasLatestBooks: false,
   hasLatestReviews: false,
   error: '',
@@ -199,6 +203,25 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         isPostingReview: false,
+        hasLatestReviews: false,
+        error: action.payload
+      }
+    case DELETING_REVIEW_START:
+      return {
+        ...state,
+        isDeletingReview: true,
+        error: ''
+      }
+    case DELETING_REVIEW_SUCCESS:
+      return {
+        ...state,
+        isDeletingReview: false,
+        hasLatestReviews: false,
+      }
+    case DELETING_REVIEW_FAILURE:
+      return {
+        ...state,
+        isDeletingReview: false,
         hasLatestReviews: false,
         error: action.payload
       }

@@ -54,3 +54,10 @@ export {
   POSTING_REVIEW_FAILURE,
   postReview
 } from './reviewsActions';
+
+export {
+  DELETING_REVIEW_START,
+  DELETING_REVIEW_SUCCESS,
+  DELETING_REVIEW_FAILURE,
+  deleteReview
+} from './reviewsActions';

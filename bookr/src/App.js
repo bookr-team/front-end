@@ -6,6 +6,7 @@ import { withRouter } from 'react-router';
 import { 
   checkCurrentLogin, 
   deleteBook,
+  deleteReview,
   logout 
 } from './store/actions';
 
@@ -29,9 +30,15 @@ class App extends React.Component {
   delete = (id, type) => {
     // putting this in App in case we want it to be available to HomeView as well. 
     // need to undo cond'l render in BookCard if so
-    console.log("delete");
-    this.props.deleteBook(id);
-    this.props.history.push('/loggedin');
+    if(type === 'book') {
+      console.log("App: deleteBook");
+      this.props.deleteBook(id);
+      this.props.history.push('/loggedin');
+    }
+    if(type === 'review'){
+      console.log("App: deleteReview", id);
+      this.props.deleteReview(id);
+    }
   }
 
   render () {
@@ -81,7 +88,8 @@ export default withRouter(connect(
   mapStateToProps,
   { 
     checkCurrentLogin, 
-    deleteBook, 
+    deleteBook,
+    deleteReview,
     logout 
   }
 )(App));

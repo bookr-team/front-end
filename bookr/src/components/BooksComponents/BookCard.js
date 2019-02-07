@@ -32,7 +32,13 @@ function BookCard(props) {
   let reviews = "";
   if(props.reviews) {
     console.log("BookCard reviews: ", props.reviews);
-    reviews = props.reviews.map(review => <Review key={review.id} review={review} />)
+    reviews = props.reviews.map(review => 
+      <Review 
+        key={review.id} 
+        review={review} 
+        delete={props.delete}
+        userName={props.userName}
+      />)
   }
 
   return (

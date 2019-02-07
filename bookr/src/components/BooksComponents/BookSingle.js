@@ -64,6 +64,7 @@ class BookSingle extends React.Component {
               delete={this.props.delete}
               isFetchingBooks={this.props.isFetchingBooks}
               isFetchingReviews={this.props.isFetchingReviews}
+              userName={this.props.userName}
             />
             <IconButton color="primary" onClick={this.handleOpen}>
               <AddIcon />
