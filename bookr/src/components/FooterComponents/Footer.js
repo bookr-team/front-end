@@ -16,7 +16,7 @@ function Footer(props) {
       alignItems="center"
       style={{ 
         backgroundColor: "#c8c6cc", //"#cbebe6",
-        padding: "20px 180px"
+        padding: "20px 180px 50px 180px"
       }}
     >
     {/* style={{ backgroundColor: "blue" }} */}

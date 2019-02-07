@@ -47,34 +47,32 @@ class App extends React.Component {
   render () {
     // console.log("App render, isLoggingIn: ", this.props.isLoggingIn);
     return (
-        <div className= "App">
-          <Nav handleLogout={this.handleLogout}></Nav>
-          {/* <Switch>
+        <div className="App">
+          <div className="nav-container">
+            <Nav handleLogout={this.handleLogout}></Nav>
+          </div>
+          <div className="main-container">
             <Route exact path="/" component={Landing} />
-            <Route path="/login" component={LoginView} />
-            { isLoggedin && 
-              <Route exact path="/loggedin" component={HomeView} />
-            }
-          </Switch> */}
-          <Route exact path="/" component={Landing} />
-          <Route path="/login" component={LoginRegisterView} />
-          <Route path="/register" component={LoginRegisterView} />
-          <Route 
-            exact path="/loggedin" 
-            component={HomeView}
-          />
-          <Route 
-            path="/loggedin/book/:id" 
-            render={props => (
-              <BookView
-              {...props}
-              delete={this.delete}
-              />
-              )}
-          />
-          <Route path="/settings" component={SettingsView} />
-          {/* <ConditionalRender />  */}
-          <Footer handleLogout={this.handleLogout}></Footer>
+            <Route path="/login" component={LoginRegisterView} />
+            <Route path="/register" component={LoginRegisterView} />
+            <Route 
+              exact path="/loggedin" 
+              component={HomeView}
+            />
+            <Route 
+              path="/loggedin/book/:id" 
+              render={props => (
+                <BookView
+                {...props}
+                delete={this.delete}
+                />
+                )}
+            />
+            <Route path="/settings" component={SettingsView} />
+          </div>
+          <div className="footer-container">
+            <Footer handleLogout={this.handleLogout}></Footer>
+          </div> 
         </div>
     );
   }

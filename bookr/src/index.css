@@ -1,6 +1,7 @@
-body {
+html, body {
   margin: 0;
   background-color: #edf8f6;
+  position: relative;
 }
 
 a {
@@ -14,4 +15,22 @@ a.active {
 
 a:hover {
   color: #fc5e32;
+}
+
+.nav-container {
+  position: absolute;
+  width: 100%;
+}
+
+.main-container {
+  min-height: 100vh;
+  overflow: hidden;
+  display: block;
+  position: relative;
+}
+
+.footer-container {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 }

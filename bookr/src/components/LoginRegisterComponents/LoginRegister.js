@@ -15,7 +15,7 @@ function LoginRegister(props) {
       direction="column"
       justify="center"
       alignItems="center"
-      style={{ margin: "150px 0" }}
+      style={{ padding: "20vh 0" }}
     >
       <Card
         style={{ padding: "25px" }}
