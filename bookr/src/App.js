@@ -17,6 +17,7 @@ import HomeView from './views/HomeView/HomeView';
 import Landing from './Landing';
 import LoginView from './views/LoginView/LoginView';
 import RegisterView from './views/RegisterView/RegisterView';
+import LoginRegisterView from './views/LoginRegisterView/LoginRegisterView';
 
 import './App.css';
 
@@ -54,8 +55,8 @@ class App extends React.Component {
             }
           </Switch> */}
           <Route exact path="/" component={Landing} />
-          <Route path="/login" component={LoginView} />
-          <Route path="/register" component={RegisterView} />
+          <Route path="/login" component={LoginRegisterView} />
+          <Route path="/register" component={LoginRegisterView} />
           <Route 
             exact path="/loggedin" 
             component={HomeView}
