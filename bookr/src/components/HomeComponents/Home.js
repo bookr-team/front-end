@@ -4,16 +4,10 @@ import { withRouter } from 'react-router';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 
-import Nav from '../NavComponents/Nav';
 import BookCard from '../BooksComponents/BookCard';
 import AddBookForm from '../BooksComponents/AddBookForm';
 
 class Home extends React.Component {
-
-  handleLogout = () => {
-    this.props.logout();
-    this.props.history.push('/login');
-  }
 
   render() {
     console.log("render in Home ", this.props.books);
@@ -25,7 +19,6 @@ class Home extends React.Component {
     
     return (
       <div className="Home">
-        <Nav handleLogout={this.handleLogout}></Nav>
         {/* <Button 
           name="logout" 
           color="primary" 

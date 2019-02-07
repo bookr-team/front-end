@@ -36,7 +36,8 @@ function BookCard(props) {
       <Link 
         to={`/loggedin/book/${props.book.id}`}
         style={{ textDecoration: 'none' }}
-      >
+      > 
+      {/* {style={{ maxHeight: '350px' }}} */}
         <Card raised >
           {/* <CardActionArea> */}
             <Typography 

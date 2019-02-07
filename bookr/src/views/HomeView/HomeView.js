@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import { getBooks, getReviews, addBook, logout } from '../../store/actions';
+import { getBooks, getReviews, addBook } from '../../store/actions';
 
 import Home from '../../components/HomeComponents/Home';
 
@@ -13,7 +13,7 @@ function HomeView(props) {
     if (!props.hasLatestBooks) {
       props.getBooks();  // if successful, props.books = [books here!]
     }
-    if (!props.hasLatestBooks) {
+    if (!props.hasLatestReviews) {
       props.getReviews();
     }
     return (
@@ -49,6 +49,5 @@ export default connect(
     getBooks,
     getReviews,
     addBook,
-    logout
   }
 )(HomeView);

@@ -3,9 +3,10 @@ import { connect } from 'react-redux';
 import { Route } from 'react-router-dom'; // Switch
 import { withRouter } from 'react-router';
 
-import { checkCurrentLogin } from './store/actions';
+import { checkCurrentLogin, logout } from './store/actions';
 
 // import auth from './components/auth/auth';
+import Nav from './components/NavComponents/Nav';
 import BookView from './views/BookView/BookView';
 import HomeView from './views/HomeView/HomeView';
 import Landing from './Landing';
@@ -16,10 +17,16 @@ import './App.css';
 
 class App extends React.Component {
 
+  handleLogout = () => {
+    this.props.logout();
+    this.props.history.push('/login');
+  }
+
   render () {
     // console.log("App render, isLoggingIn: ", this.props.isLoggingIn);
     return (
         <div className= "App">
+          <Nav handleLogout={this.handleLogout}></Nav>
           {/* <Switch>
             <Route exact path="/" component={Landing} />
             <Route path="/login" component={LoginView} />
@@ -50,5 +57,5 @@ const mapStateToProps = state => ({
 
 export default withRouter(connect(
   mapStateToProps,
-  { checkCurrentLogin }
+  { checkCurrentLogin, logout }
 )(App));
