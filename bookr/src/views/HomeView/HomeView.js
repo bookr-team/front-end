@@ -23,6 +23,7 @@ function HomeView(props) {
         reviews={props.reviews}
         logout={props.logout}
         addBook={props.addBook}
+        delete={props.delete}
       />
     )
   } else {

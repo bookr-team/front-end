@@ -67,6 +67,7 @@ class BookSingle extends React.Component {
             <BookCard 
               book={this.props.book}
               reviews={this.props.reviews}
+              delete={this.props.delete}
             />
             <IconButton color="primary" onClick={this.handleOpen}>
               <AddIcon />

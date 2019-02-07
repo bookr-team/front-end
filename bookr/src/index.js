@@ -42,6 +42,13 @@ const theme = createMuiTheme({
       '"Open Sans"',
     ].join(','),
   },overrides: {
+      MuiIconButton: {
+        root: {
+          '&:hover': {
+            backgroundColor: '#fad894'
+          }
+        }
+      }
     // MuiCardActionArea: {
     //   focusVisible: {
     //     backgroundColor: 'primary'

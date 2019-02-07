@@ -13,7 +13,7 @@ class Home extends React.Component {
     console.log("render in Home ", this.props.books);
     const booksCards = this.props.books.map(book => 
       <Grid key={book.id} item xs={4}>
-        <BookCard book={book} />
+        <BookCard book={book} delete={this.props.delete}/>
       </Grid>
       );
     

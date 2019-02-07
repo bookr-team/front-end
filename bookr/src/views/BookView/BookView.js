@@ -24,6 +24,7 @@ function BookView(props) {
       postReview={props.postReview}
       userName={props.userName}
       hasLatestReviews={props.hasLatestReviews}
+      delete={props.delete}
     />
   );
 }

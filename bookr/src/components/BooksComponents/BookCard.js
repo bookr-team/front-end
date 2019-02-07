@@ -1,12 +1,15 @@
 import React from 'react';
+import { withRouter } from 'react-router';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
-import CardActionArea from '@material-ui/core/CardActionArea';
+// import CardActionArea from '@material-ui/core/CardActionArea';
 import Typography from '@material-ui/core/Typography';
 import CardMedia from '@material-ui/core/CardMedia';
-// import Grid from '@material-ui/core/Grid';
+import IconButton from '@material-ui/core/IconButton';
+import DeleteIcon from '@material-ui/icons/Delete';
+import Grid from '@material-ui/core/Grid';
 
 import Review from '../ReviewsComponents/Review';
 
@@ -33,30 +36,46 @@ function BookCard(props) {
   }
 
   return (
+    <Card raised style={{ margin: '20px', padding: '20px' }}>
+      <Grid 
+        container 
+        direction="row" 
+        justify="flex-end" 
+      >
+        {props.location.pathname !== '/loggedin' && 
+          <IconButton 
+            onClick={props.delete}
+            style={{ margin: "-20px -20px -20px 0"}}
+          >
+          {/* color="#dfdce3" */}
+            <DeleteIcon fontSize="small"/>
+          </IconButton>
+        }
+      </Grid>
       <Link 
         to={`/loggedin/book/${props.book.id}`}
         style={{ textDecoration: 'none' }}
       > 
-        <Card raised style={{ margin: '20px', padding: '15px' }}>
           {/* <CardActionArea> */}
-            <Typography 
-              variant="h4" 
-              style={{ maxWidth: '400px' }}
-            >
-              {props.book.title}
-            </Typography>
-            <CardMedia
-              className={classes.media}
-              image={bookImg}
-              title={props.book.title}
-            />
-            <Typography variant="h6">By {props.book.author}</Typography>
-            <Typography variant="subtitle1">Published by {props.book.publisher}</Typography>
-            <Typography variant="body1">Summary: {props.book.summary}</Typography>
-            {reviews}
-          {/* </CardActionArea> */}
-        </Card>
+        <Typography 
+          variant="h4" 
+          style={{ maxWidth: '400px' }}
+        >
+          {props.book.title}
+        </Typography>
+        <CardMedia
+          className={classes.media}
+          image={bookImg}
+          title={props.book.title}
+          style={{ margin: '15px 0'}}
+        />
+        <Typography variant="h6">By {props.book.author}</Typography>
+        <Typography variant="subtitle1">Published by {props.book.publisher}</Typography>
+        <Typography variant="body1">Summary: {props.book.summary}</Typography>
+        {reviews}
+      {/* </CardActionArea> */}
       </Link>
+    </Card>
   )
 }
 
@@ -64,4 +83,4 @@ BookCard.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(BookCard);
+export default withRouter(withStyles(styles)(BookCard));

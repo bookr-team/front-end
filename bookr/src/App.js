@@ -22,6 +22,12 @@ class App extends React.Component {
     this.props.history.push('/login');
   }
 
+  delete = () => {
+    // putting this in App in case we want it to be available to HomeView as well. 
+    // need to undo cond'l render in BookCard if so
+    console.log("delete");
+  }
+
   render () {
     // console.log("App render, isLoggingIn: ", this.props.isLoggingIn);
     return (
@@ -30,16 +36,26 @@ class App extends React.Component {
           {/* <Switch>
             <Route exact path="/" component={Landing} />
             <Route path="/login" component={LoginView} />
-            { isLoggedIn && 
-              <Route exact path="/loggedIn" component={HomeView} />
+            { isLoggedin && 
+              <Route exact path="/loggedin" component={HomeView} />
             }
           </Switch> */}
           <Route exact path="/" component={Landing} />
           <Route path="/login" component={LoginView} />
           <Route path="/register" component={RegisterView} />
-          <Route exact path="/loggedin" component={HomeView} />
           <Route 
-            path="/loggedin/book/:id" component={BookView} />
+            exact path="/loggedin" 
+            component={HomeView}
+          />
+          <Route 
+            path="/loggedin/book/:id" 
+            render={props => (
+              <BookView
+                {...props}
+                delete={this.delete}
+              />
+            )}
+          />
           {/* <ConditionalRender />  */}
         </div>
     );
