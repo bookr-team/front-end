@@ -27,6 +27,7 @@ export const login = (userData) => dispatch => {
     localStorage.setItem('bookrUser', userData.username);
     // todo: cases if login success or fail
     dispatch({ type: LOGIN_SUCCESS, payload: userData.username });
+    return true;
   })
   .catch( err => {
     console.log("login action error: ", err);

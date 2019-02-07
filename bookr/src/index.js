@@ -28,12 +28,12 @@ const theme = createMuiTheme({
       main: '#53bdad' // teal
     },
     secondary: {
-      light: '#f7be4d', // yellow
       main: '#fc5e32', // orange
+      light: '#f7be4d', // yellow
       contrastText: '#dfdce3' // gray
     },
-    action: {
-      main: '#f7be4d',
+    accent: {
+      main: '#f7be4d', // yellow
     }
   },
   typography: {

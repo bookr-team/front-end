@@ -93,7 +93,11 @@ class RegisterForm extends React.Component {
           >
             Register
           </Button>
-          <Link to="/login">Login</Link>
+          <Link to="/login">
+            <Button color="primary">
+              Login
+            </Button>
+          </Link>
         </form>
       </>
     );
