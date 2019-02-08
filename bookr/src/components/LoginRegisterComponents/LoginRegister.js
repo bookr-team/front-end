@@ -1,39 +1,45 @@
 import React from 'react';
 import Card from '@material-ui/core/Card';
-// import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import CardMedia from '@material-ui/core/CardMedia';
 import Grid from '@material-ui/core/Grid';
 
-import LoginForm from './LoginForm';
+import bookrLogo from '../../img/bookr-logotype.svg';
 
-import bookrLogo from '../../img/bookr-logotype-altbg.svg';
+import LoginRegisterForm from './LoginRegisterForm';
 
-function Login(props) {
-  return (
+function LoginRegister(props) {
+  return(
     <Grid
       container
       direction="column"
       justify="center"
       alignItems="center"
+      style={{ padding: "20vh 0" }}
     >
-      <Card>
+      <Card
+        style={{ padding: "25px" }}
+      >
         <Typography
           variant="h4"
+          style={{ marginBottom: "25px" }}
         >
-          Log in to Bookr
+          Welcome to Bookr. {props.path === '/login' ? "Login:" : "Register:"}
         </Typography>
         <CardMedia
           image={bookrLogo}
         />
-        <LoginForm 
+        <LoginRegisterForm 
           login={props.login} 
+          register={props.register}
           isLoggingIn={props.isLoggingIn}
+          isRegistering={props.isRegistering}
           isLoggedIn={props.isLoggedIn}
+          path={props.path}
         />
       </Card>
     </Grid>
-  );
+  )
 }
 
-export default Login;
+export default LoginRegister;

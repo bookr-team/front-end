@@ -2,39 +2,35 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Typography from '@material-ui/core/Typography';
+import Grid from '@material-ui/core/Grid';
 
-import { getBooks, getReviews, addBook } from '../../store/actions';
+import Settings from '../../components/SettingsComponents/Settings';
 
-import Home from '../../components/HomeComponents/Home';
-
-function HomeView(props) {
+function SettingsView(props) {
 
   if (props.isLoggedIn) { // update this to check for token once that's working...
     // console.log(props.books);
-    if (!props.hasLatestBooks) {
-      props.getBooks();  // if successful, props.books = [books here!]
-    }
-    if (!props.hasLatestReviews) {
-      props.getReviews();
-    }
     return (
       <>
         <Typography 
           variant="h4"
-          style={{ fontFamily: 'aleo', margin: '20px 20px 0 20px' }}
+          style={{ fontFamily: 'aleo', margin: '20px' }}
         >
-          Welcome to BOOKR, {props.userName}
+          Settings. User: {props.userName}
         </Typography>
-        <Home 
-          userName={props.userName}
-          books={props.books}
-          reviews={props.reviews}
-          logout={props.logout}
-          addBook={props.addBook}
-          delete={props.delete}
-          isFetchingBooks={props.isFetchingBooks}
-          isFetchingReviews={props.isFetchingReviews}
-        />
+        <Grid 
+            container 
+            direction="row"
+            justify="space-evenly"
+            alignItems="flex-start"
+          >
+          <Settings />
+          <Settings />
+          <Settings />
+          <Settings />
+          <Settings />
+          <Settings />
+        </Grid>
       </>
     )
   } else {
@@ -60,8 +56,5 @@ const mapStateToProps = state => {
 export default connect(
   mapStateToProps,
   {
-    getBooks,
-    getReviews,
-    addBook,
   }
-)(HomeView);
+)(SettingsView);

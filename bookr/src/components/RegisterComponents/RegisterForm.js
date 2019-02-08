@@ -1,6 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router';
 import { Link } from 'react-router-dom';
+import Button from '@material-ui/core/Button';
 
 class RegisterForm extends React.Component {
   constructor() {
@@ -28,6 +29,10 @@ class RegisterForm extends React.Component {
         this.setState({
           inputInvalid: false
         });
+      } else {
+        this.setState({
+          inputInvalid: true
+        });
       }
     } else {
       this.setState({
@@ -41,11 +46,10 @@ class RegisterForm extends React.Component {
     const userData = {
       username: this.state.userNameInput,
       password: this.state.passwordInput,
-      passwordConfirm: this.state.passwordConfirmInput,
       role: this.state.role
     };
     try {
-      this.state.userNameInput && this.props.register(JSON.stringify(userData));
+      this.state.userNameInput && this.props.register(userData);
       this.props.history.push('/loggedin');
     }
     catch(err) {
@@ -81,14 +85,19 @@ class RegisterForm extends React.Component {
             onChange={this.handleInput}
             autoComplete="off"
           />
-          <button 
+          <Button 
             type="submit" 
             value="Register"
             disabled={this.state.inputInvalid}
+            color="primary"
           >
             Register
-          </button>
-          <Link to="/login">Login</Link>
+          </Button>
+          <Link to="/login">
+            <Button color="primary">
+              Login
+            </Button>
+          </Link>
         </form>
       </>
     );

@@ -7,7 +7,7 @@ import { login } from '../../store/actions';
 import Login from '../../components/LoginComponents/Login';
 
 function LoginView(props) {
-  console.log("login view is logging in: ", props.isLoggingIn);
+  // console.log("login view is logging in: ", props.isLoggingIn);
   return (
     <Login 
       login={props.login}

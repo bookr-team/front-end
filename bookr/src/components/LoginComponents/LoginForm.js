@@ -1,6 +1,8 @@
 import React from 'react';
 import { withRouter } from 'react-router';
 import { Link } from 'react-router-dom';
+import Button from '@material-ui/core/Button';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 class LoginForm extends React.Component {
   constructor() {
@@ -8,18 +10,16 @@ class LoginForm extends React.Component {
     this.state = {
       userNameInput: "",
       passwordInput: "",
-      role: 1,
+      role: 0,
       inputInvalid: true
     }
   }
 
   componentDidMount() {
-    console.log("login form is logged in: ", this.props.isLoggedIn);
-    
+    // console.log("login form is logged in: ", this.props.isLoggedIn);
     if(this.props.isLoggingIn) {
       this.setState({
-        inputInvalid: true,
-        isLoggingIn: true
+        inputInvalid: true
       });
     }
   }
@@ -52,14 +52,18 @@ class LoginForm extends React.Component {
       role: this.state.role
     };
     try {
-      this.state.userNameInput && this.props.login(JSON.stringify(userData));this.props.history.push('/loggedin'); // once logged in, redirect
+      !this.state.inputInvalid && this.props.login(userData);
     } catch(err) {
       this.props.history.push('/login');
-      console.log(err);
+      console.log("login form error: ", err);
+      return;
     }
   }
 
   render() {
+    // once logged in, redirect
+    this.props.isLoggedIn && this.props.history.push('/loggedin');
+
     return (
       <>
         <form onSubmit={this.handleLogin}>
@@ -79,14 +83,20 @@ class LoginForm extends React.Component {
             onChange={this.handleInput}
             autoComplete="off"
           />
-          <button 
+          <Button 
             type="submit" 
             value="Login" 
             disabled={this.state.inputInvalid}
           >
-            Log In
-          </button>
-          <Link to="/register">Register</Link>
+            {this.props.isLoggingIn ? 
+            <CircularProgress color="primary" />
+            : "Log In"}
+          </Button>
+          <Link to="/register">
+            <Button color="primary">
+              Register
+            </Button>
+          </Link>
         </form>
       </>
     );

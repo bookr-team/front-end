@@ -11,6 +11,21 @@ import {
   FETCHING_BOOKS_START,
   FETCHING_BOOKS_SUCCESS,
   FETCHING_BOOKS_FAILURE,
+  ADDING_BOOK_START,
+  ADDING_BOOK_SUCCESS,
+  ADDING_BOOK_FAILURE,
+  DELETING_BOOK_START,
+  DELETING_BOOK_SUCCESS,
+  DELETING_BOOK_FAILURE,
+  FETCHING_REVIEWS_START,
+  FETCHING_REVIEWS_SUCCESS,
+  FETCHING_REVIEWS_FAILURE,
+  POSTING_REVIEW_START,
+  POSTING_REVIEW_SUCCESS,
+  POSTING_REVIEW_FAILURE,
+  DELETING_REVIEW_START,
+  DELETING_REVIEW_SUCCESS,
+  DELETING_REVIEW_FAILURE,
 } from '../actions';
 
 const user = localStorage.getItem('bookrUser'); // todo: udpdate to token.
@@ -21,42 +36,18 @@ const initialState = {
   isLoggedIn: loggedIn,
   isLoggingIn: false,
   isRegistering: false,
-  isFetchingBooks: false,
+  isFetchingBooks: true,
+  isAddingBook: false,
+  isDeletingBook: false,
+  isFetchingReviews: true,
+  isPostingReview: false,
+  isDeletingReview: false,
+  hasLatestBooks: false,
+  hasLatestReviews: false,
   error: '',
   userName: user,
-  books: [
-    // { "id": 1, "title": "FirstBook", "author": "me", "publisher": "book inc", "summary": "stuff", "true": null }, { "id": 2, "title": "SecondBook", "author": "me", "publisher": "bookinc", "summary": null, "true": null }, { "id": 3, "title": "C++ for all", "author": "Prof. SmartyPants", "publisher": "Tech book inc", "summary": "more stuff", "true": null }
-    // {
-    //   title: 'Test book1',
-    //   author: 'Test author 1',
-    //   publisher: 'Test publisher1',
-    //   reviews: [
-    //     {
-    //         reviewer: 'Test reviewer 1',
-    //         review: 'this is a good test review 1'
-    //     },
-    //     {
-    //       reviewer: 'Test reviewer 2',
-    //       review: 'this is a good test review 2'
-    //     }
-    //   ]
-    // },
-    // {
-    //   title: 'Test book2',
-    //   author: 'Test author 2',
-    //   publisher: 'Test publisher2',
-    //   reviews: [
-    //     {
-    //         reviewer: 'Test reviewer 1',
-    //         review: 'this is a good test review 3'
-    //     },
-    //     {
-    //       reviewer: 'Test reviewer 2',
-    //       review: 'this is a good test review 4'
-    //     }
-    //   ]
-    // }
-  ]
+  books: [],
+  reviews: []
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -104,7 +95,6 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         isRegistering: true,
-        userName: '',
         error: ''
       }
     case REGISTER_SUCCESS:
@@ -131,12 +121,108 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         isFetchingBooks: false,
+        hasLatestBooks: true,
         books: action.payload
       }
     case FETCHING_BOOKS_FAILURE:
       return {
         ...state,
         isFetchingBooks: false,
+        hasLatestBooks: false,
+        error: action.payload
+      }
+    case ADDING_BOOK_START:
+      return {
+        ...state,
+        isAddingBook: true,
+        error: ''
+      }
+    case ADDING_BOOK_SUCCESS:
+      return {
+        ...state,
+        isAddingBook: false,
+        hasLatestBooks: false
+      }
+    case ADDING_BOOK_FAILURE:
+      return {
+        ...state,
+        isAddingBook: false,
+        error: action.payload
+      }
+    case DELETING_BOOK_START:
+      return {
+        ...state,
+        isDeletingBook: true,
+        error: ''
+      }
+    case DELETING_BOOK_SUCCESS:
+      return {
+        ...state,
+        isDeletingBook: false,
+        hasLatestBooks: false
+      }
+    case DELETING_BOOK_FAILURE:
+      return {
+        ...state,
+        isDeletingBook: false,
+        error: action.payload
+      }
+    case FETCHING_REVIEWS_START:
+      return {
+        ...state,
+        isFetchingReviews: true,
+        error: ''
+      }
+    case FETCHING_REVIEWS_SUCCESS:
+      return {
+        ...state,
+        isFetchingReviews: false,
+        hasLatestReviews: true,
+        reviews: action.payload
+      }
+    case FETCHING_REVIEWS_FAILURE:
+      return {
+        ...state,
+        isFetchingReviews: false,
+        hasLatestReviews: false,
+        error: action.payload
+      }
+    case POSTING_REVIEW_START:
+      return {
+        ...state,
+        isPostingReview: true,
+        error: ''
+      }
+    case POSTING_REVIEW_SUCCESS:
+      return {
+        ...state,
+        isPostingReview: false,
+        hasLatestReviews: false,
+      }
+    case POSTING_REVIEW_FAILURE:
+      return {
+        ...state,
+        isPostingReview: false,
+        hasLatestReviews: false,
+        error: action.payload
+      }
+    case DELETING_REVIEW_START:
+      return {
+        ...state,
+        isDeletingReview: true,
+        error: ''
+      }
+    case DELETING_REVIEW_SUCCESS:
+      return {
+        ...state,
+        isDeletingReview: false,
+        hasLatestReviews: false,
+      }
+    case DELETING_REVIEW_FAILURE:
+      return {
+        ...state,
+        isDeletingReview: false,
+        hasLatestReviews: false,
         error: action.payload
       }
     default: 

@@ -17,20 +17,21 @@ export const checkCurrentLogin = () => dispatch => {
 export const login = (userData) => dispatch => {
   dispatch({ type: LOGIN_START });
   console.log("login action, userData: ", userData);
-  localStorage.setItem('bookrUser', JSON.parse(userData).username);
-  dispatch({ type: LOGIN_SUCCESS, payload: JSON.parse(userData).username });
+  // localStorage.setItem('bookrUser', JSON.parse(userData).username);
+  // dispatch({ type: LOGIN_SUCCESS, payload: JSON.parse(userData).username });
   // throw "login failure";
-  // API
-  // .post("login", userData)
-  // .then( res => {
-  //   console.log(res);
-  //   localStorage.setItem('bookrUser', userData.username);
-  //   // todo: cases if login success or fail
-  //   dispatch({ type: LOGIN_SUCCESS, payload: userData.username });
-  // })
-  // .catch( err => {
-  //   console.log("login actinon error: ", err);
-  //   dispatch({ type: LOGIN_FAILURE, payload: err.response })
-  //   throw new Error("login error");
-  // })
+  API
+  .post("login", userData)
+  .then( res => {
+    console.log(res);
+    localStorage.setItem('bookrUser', userData.username);
+    // todo: cases if login success or fail
+    dispatch({ type: LOGIN_SUCCESS, payload: userData.username });
+    return true;
+  })
+  .catch( err => {
+    console.log("login action error: ", err);
+    dispatch({ type: LOGIN_FAILURE, payload: err.response })
+    return new Error("login error");
+  })
 }

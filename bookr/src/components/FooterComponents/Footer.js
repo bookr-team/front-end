@@ -7,8 +7,7 @@ import Grid from '@material-ui/core/Grid';
 
 import bookrLogo from '../../img/bookr-logotype.svg';
 
-function Nav(props) {
-  // props.location.pathname === '/loggedin' && 
+function Footer(props) {
   return (
     <Grid 
       container
@@ -16,8 +15,8 @@ function Nav(props) {
       justify="space-between"
       alignItems="center"
       style={{ 
-        backgroundColor: "white", //"#cbebe6",
-        padding: "20px 180px"
+        backgroundColor: "#c8c6cc", //"#cbebe6",
+        padding: "20px 180px 50px 180px"
       }}
     >
     {/* style={{ backgroundColor: "blue" }} */}
@@ -36,12 +35,6 @@ function Nav(props) {
           >
             <NavLink 
               exact to="/loggedin"
-              // style={{
-              //   textDecoration: props.location.pathname !== '/loggedin' && 'none',
-              //   color: 'black',
-              //   '& a:hover': {
-              //       color: 'orange'
-              //   }}}
             >
               Home
             </NavLink>
@@ -51,10 +44,6 @@ function Nav(props) {
           >
             <NavLink 
               to="/settings"
-              // style={{
-              //   textDecoration: props.location.pathname !== '/settings' && 'none',
-              //   color: 'black'
-              // }}
             >
               Settings
             </NavLink>
@@ -72,4 +61,4 @@ function Nav(props) {
   );
 }
 
-export default withRouter(Nav);
+export default withRouter(Footer);
