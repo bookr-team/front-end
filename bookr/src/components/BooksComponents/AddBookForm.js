@@ -63,6 +63,7 @@ class AddBookForm extends React.Component {
     this.setState({
       ...emptyBookForm
     });
+    this.props.closeModal();
   }
 
   render() {

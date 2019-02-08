@@ -81,6 +81,7 @@ class Home extends React.Component {
               <div style={modalStyle}>
                 <AddBookForm 
                   addBook={this.props.addBook}
+                  closeModal={this.handleClose}
                 />
               </div>
             </Modal>
