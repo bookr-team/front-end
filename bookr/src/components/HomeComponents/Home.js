@@ -48,9 +48,11 @@ class Home extends React.Component {
         <Grid key={book.id} item xs={4}>
           <BookCard 
             book={book} 
+            reviews={this.props.reviews}
             delete={this.props.delete}
             isFetchingBooks={this.props.isFetchingBooks}
             isFetchingReviews={this.props.isFetchingReviews}
+            dispReviews={false}
           />
         </Grid>
         );
@@ -72,6 +74,7 @@ class Home extends React.Component {
             direction="row"
             justify="space-evenly"
             alignItems="flex-start"
+            wrap="wrap"
           >
             {booksCards}
             <Modal 
