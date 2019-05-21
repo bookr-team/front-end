@@ -50,7 +50,7 @@ function BookCard(props) {
   }
 
   return (
-    <Card raised style={{ margin: '20px', padding: '20px', minWidth: '300px' }}>
+    <Card raised style={{ margin: '20px', padding: '20px', maxWidth: '300px' }}>
       <Grid 
         container 
         direction="row" 

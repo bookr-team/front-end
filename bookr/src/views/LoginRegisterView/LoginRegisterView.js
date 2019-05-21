@@ -16,6 +16,7 @@ function LoginRegisterView(props) {
       isRegistering={props.isRegistering}
       isLoggedIn={props.isLoggedIn}
       path={props.location.pathname}
+      error={props.error}
     />
   );
 }
@@ -24,6 +25,7 @@ const mapStateToProps = state => ({
   isLoggingIn: state.isLoggingIn,
   isRegistering: state.isRegistering,
   isLoggedIn: state.isLoggedIn,
+  error: state.error
 });
 
 export default connect(

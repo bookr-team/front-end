@@ -36,6 +36,7 @@ function LoginRegister(props) {
           isRegistering={props.isRegistering}
           isLoggedIn={props.isLoggedIn}
           path={props.path}
+          error={props.error}
         />
       </Card>
     </Grid>

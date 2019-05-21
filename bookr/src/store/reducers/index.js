@@ -82,7 +82,7 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         isLoggingIn: false,
-        error: action.payload
+        error: `bad login: ${action.payload}`
       }
     case LOGOUT:
       return {
@@ -109,7 +109,7 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         isRegistering: false,
-        error: action.payload
+        error: `bad register: ${action.payload}`
       }
     case FETCHING_BOOKS_START:
       return {

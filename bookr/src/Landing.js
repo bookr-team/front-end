@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 function Landing() {
   return (
     <>
-      <Link to="/login">Log In</Link>
+      <Link to="/login" className="login-notice">LOG IN!!</Link>
     </>
   );
 }
