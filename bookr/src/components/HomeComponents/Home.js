@@ -45,7 +45,7 @@ class Home extends React.Component {
         return "Server gave no books :("
       }
       const booksCards = this.props.books.map(book => 
-        <Grid key={book.id} item xs={4}>
+        <Grid key={book.id} item xs={6}>
           <BookCard 
             book={book} 
             reviews={this.props.reviews}

@@ -15,7 +15,9 @@ class LoginRegisterForm extends React.Component {
       passwordInput: "",
       passwordConfirmInput: "",
       role: 0,
-      inputInvalid: true
+      inputInvalid: true,
+      error: "",
+      errorSeen: false
     }
   }
 
@@ -26,6 +28,7 @@ class LoginRegisterForm extends React.Component {
         inputInvalid: true
       });
     }
+    console.log("Login/Register: error, ", this.props.error);
   }
 
   handleInput = (e) => {
@@ -99,9 +102,16 @@ class LoginRegisterForm extends React.Component {
     }
   }
 
+  clearError = () => {
+    console.log("clearing error");
+    this.setState({ error: "", errorSeen: true });
+  }
+
   render() {
     // once logged in, redirect
     this.props.isLoggedIn && this.props.history.push('/loggedin');
+    // get error if bad login/register
+    if( this.props.error && !this.state.error && !this.state.errorSeen ) this.setState({ error: this.props.error });
 
     return (
       <>
@@ -139,6 +149,14 @@ class LoginRegisterForm extends React.Component {
               style={{ width: '100%' }}
             />
           }
+          {this.state.error &&
+            <Typography type="body2" color="error">
+            {this.props.path === '/login' ?
+              "Bad Login, wrong user name or password!"
+            : "Bad Register, username taken!"
+            }
+            </Typography>
+          }
           <Grid
             container
             direction="row"
@@ -157,7 +175,7 @@ class LoginRegisterForm extends React.Component {
                 {this.props.path === '/login' ? "New to booker? " : "Already a Bookr?"}
               </Typography>
               <Link to={this.props.path === '/login' ? "/register" : "/login"}>
-                <Button color="primary">
+                <Button color="primary" onClick={this.clearError}>
                 {this.props.path === '/login' ? "Register" : "Login"}
                 </Button>
               </Link>
