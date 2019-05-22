@@ -9,53 +9,51 @@ import bookrLogo from '../../img/bookr-logotype.svg';
 
 function Footer(props) {
   return (
-    <Grid 
+    <Grid
       container
       direction="row"
       justify="space-between"
       alignItems="center"
-      style={{ 
+      style={{
         backgroundColor: "#c8c6cc", //"#cbebe6",
-        padding: "20px 180px 50px 180px"
+        padding: "20px 20px"
       }}
     >
-    {/* style={{ backgroundColor: "blue" }} */}
-      <Grid >
-        <img src={bookrLogo} alt="Bookr Home" style={{ height: '60px' }}/>
+      <Grid item xs={12} sm={4}>
+        <img src={bookrLogo} alt="Bookr Home" style={{ height: '60px' }} />
       </Grid>
-      <Grid 
-        container
-        direction="row"
-        justify="space-between"
-        alignItems="center"
-        style={{ maxWidth: "40%"}}
-      >
-          <Typography
-            variant="h6"
-          >
-            <NavLink 
-              exact to="/loggedin"
+      <Grid item xs={12} md={6} lg={4}>
+        <Grid
+          container
+          direction="row"
+          justify="space-between"
+          alignItems="center"
+        >
+          <Grid item xs={4}>
+            <Typography variant="h6">
+              <NavLink exact to="/loggedin">
+                Home
+              </NavLink>
+            </Typography>
+          </Grid>
+          <Grid item xs={4}>
+            <Typography variant="h6">
+              <NavLink to="/settings">
+                Settings
+              </NavLink>
+            </Typography>
+          </Grid>
+          <Grid item xs={4}>
+            <Button
+              name="logout"
+              color="primary"
+              style={{ fontFamily: 'aleo', fontSize: '1.2rem' }}
+              onClick={props.handleLogout}
             >
-              Home
-            </NavLink>
-          </Typography>
-          <Typography
-            variant="h6"
-          >
-            <NavLink 
-              to="/settings"
-            >
-              Settings
-            </NavLink>
-          </Typography>
-          <Button 
-            name="logout" 
-            color="primary" 
-            style={{ fontFamily: 'aleo', fontSize: '1.2rem' }}
-            onClick={props.handleLogout}
-          >
-            Log Out
-          </Button>
+              Log Out
+            </Button>
+          </Grid>
+        </Grid>
       </Grid>
     </Grid>
   );
