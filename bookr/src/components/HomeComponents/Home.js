@@ -38,16 +38,16 @@ class Home extends React.Component {
       width: `33%`,
     };
 
-    if(!this.props.isFetchingBooks && !this.props.isFetchingReviews) {
+    if (!this.props.isFetchingBooks && !this.props.isFetchingReviews) {
       // only render if we have a book & reviews
-      if(!this.props.books) {
+      if (!this.props.books) {
         console.log("no books");
         return "Server gave no books :("
       }
-      const booksCards = this.props.books.map(book => 
-        <Grid key={book.id} item xs={6}>
-          <BookCard 
-            book={book} 
+      const booksCards = this.props.books.map(book =>
+        <Grid key={book.id} item xs={12} sm={6} md={4}>
+          <BookCard
+            book={book}
             reviews={this.props.reviews}
             delete={this.props.delete}
             isFetchingBooks={this.props.isFetchingBooks}
@@ -55,34 +55,34 @@ class Home extends React.Component {
             dispReviews={false}
           />
         </Grid>
-        );
-      
+      );
+
       return (
-        <div className="Home" style={{padding: "0 60px 20px 60px" }}>
+        <div className="Home" style={{ padding: "0 60px 20px 60px" }}>
           <IconButton color="primary" onClick={this.handleOpen}>
             <AddIcon />
           </IconButton>
-          <Typography 
-            variant="h6" 
+          <Typography
+            variant="h6"
             color="primary"
-            // style={{ maxWidth: '400px' }}
+          // style={{ maxWidth: '400px' }}
           >
             Add a Book!
           </Typography>
-          <Grid 
-            container 
+          <Grid
+            container
             direction="row"
             justify="space-evenly"
             alignItems="flex-start"
             wrap="wrap"
           >
             {booksCards}
-            <Modal 
+            <Modal
               open={this.state.addBookModal}
               onClose={this.handleClose}
             >
               <div style={modalStyle}>
-                <AddBookForm 
+                <AddBookForm
                   addBook={this.props.addBook}
                   closeModal={this.handleClose}
                 />
@@ -94,7 +94,7 @@ class Home extends React.Component {
     } else {
       return <ProgressBar />
     }
-  }  
+  }
 }
 
 export default withRouter(Home);
