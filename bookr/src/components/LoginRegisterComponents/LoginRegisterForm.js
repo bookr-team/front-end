@@ -172,7 +172,7 @@ class LoginRegisterForm extends React.Component {
               style={{maxWidth: "50%"}}
             >
               <Typography variant="body1">
-                {this.props.path === '/login' ? "New to booker? " : "Already a Bookr?"}
+                {this.props.path === '/login' ? "New to Bookr? " : "Already a Bookr?"}
               </Typography>
               <Link to={this.props.path === '/login' ? "/register" : "/login"}>
                 <Button color="primary" onClick={this.clearError}>

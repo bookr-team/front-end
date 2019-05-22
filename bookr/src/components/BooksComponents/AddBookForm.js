@@ -22,7 +22,7 @@ class AddBookForm extends React.Component {
   }
 
   handleInput = (e) => {
-    this.setState ({
+    this.setState({
       [e.target.name]: e.target.value
     }, () => this.validateInput());
   }
@@ -54,31 +54,33 @@ class AddBookForm extends React.Component {
     };
     try {
       console.log("add book: ", bookData);
-      ! this.state.inputInvalid && this.props.addBook(bookData);
+      !this.state.inputInvalid && this.props.addBook(bookData);
     }
-    catch(err) {
+    catch (err) {
       console.log(err);
       return;
     }
     this.setState({
       ...emptyBookForm
     });
-    this.props.closeModal();
+    this.props.closeDialog();
   }
 
   render() {
     return (
       <Grid>
-        <Card style={{ padding: '20px' }}>
-          <Typography 
+        <Card style={{ padding: '20px 40px' }}>
+          <Typography
             variant="h4"
             style={{ fontFamily: 'aleo' }}
           >
-          Add a book
+            Add a book
           </Typography>
           <form onSubmit={this.handleAddBook}>
             <TextField
+              required
               placeholder="Title"
+              label="Title"
               name="titleInput"
               value={this.state.titleInput}
               onChange={this.handleInput}
@@ -86,7 +88,9 @@ class AddBookForm extends React.Component {
               style={{ width: '100%' }}
             />
             <TextField
+              required
               placeholder="Author"
+              label="Author"
               name="authorInput"
               value={this.state.authorInput}
               onChange={this.handleInput}
@@ -94,7 +98,9 @@ class AddBookForm extends React.Component {
               style={{ width: '100%' }}
             />
             <TextField
+              required
               placeholder="Publisher"
+              label="Publisher"
               name="publisherInput"
               value={this.state.publisherInput}
               onChange={this.handleInput}
@@ -103,6 +109,7 @@ class AddBookForm extends React.Component {
             />
             <TextField
               placeholder="Summary"
+              label="Summary"
               name="summaryInput"
               value={this.state.summaryInput}
               onChange={this.handleInput}
@@ -110,19 +117,38 @@ class AddBookForm extends React.Component {
               style={{ width: '100%' }}
               multiline
             />
-            <Button 
-              type="submit" 
-              value="Add Book!"
-              disabled={this.state.inputInvalid}
-              color="primary"
+            <Grid
+              container
+              direction="row"
+              justify="space-between"
+              alignItems="center"
             >
-              Add Book!
-            </Button>
+              <Grid item xs={6}>
+                <Button
+                  type="submit"
+                  value="Add Book!"
+                  disabled={this.state.inputInvalid}
+                  color="primary"
+                  style={{ "width": "100%" }}
+                >
+                  Add Book!
+                </Button>
+              </Grid>
+              <Grid item xs={6}>
+                <Button
+                  onClick={() => this.props.closeDialog()}
+                  color="secondary"
+                  style={{ "width": "100%" }}
+                >
+                  Cancel
+                </Button>
+              </Grid>
+            </Grid>
           </form>
         </Card>
       </Grid>
     );
   }
 }
-    
+
 export default AddBookForm;

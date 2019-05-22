@@ -2,8 +2,8 @@ import React from 'react';
 import { withRouter } from 'react-router';
 // import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
-import Modal from '@material-ui/core/Modal';
-import IconButton from '@material-ui/core/IconButton';
+import Dialog from '@material-ui/core/Dialog';
+import Button from '@material-ui/core/Button';
 import AddIcon from '@material-ui/icons/Add';
 import Typography from '@material-ui/core/Typography';
 
@@ -13,41 +13,41 @@ import ProgressBar from '../../components/LoadingAnimationComponents/ProgressBar
 
 // sources:
 // https://material-ui.com/demos/progress/
-// https://material-ui.com/utils/modal/
+// https://material-ui.com/demos/dialogs/
 
 class Home extends React.Component {
   constructor(props) {
     super();
     this.state = {
-      addBookModal: false
+      addBookDialog: false
     }
   }
 
   handleOpen = () => {
-    this.setState({ addBookModal: true });
+    this.setState({ addBookDialog: true });
   }
 
   handleClose = () => {
-    this.setState({ addBookModal: false });
+    this.setState({ addBookDialog: false });
   }
 
   render() {
 
-    const modalStyle = {
-      transform: `translate(60vh, 30vh)`,
-      width: `33%`,
+    const dialogStyle = {
+      // transform: `translate(0vh, 30vh)`,
+      // width: `33%`,
     };
 
-    if(!this.props.isFetchingBooks && !this.props.isFetchingReviews) {
+    if (!this.props.isFetchingBooks && !this.props.isFetchingReviews) {
       // only render if we have a book & reviews
-      if(!this.props.books) {
+      if (!this.props.books) {
         console.log("no books");
         return "Server gave no books :("
       }
-      const booksCards = this.props.books.map(book => 
-        <Grid key={book.id} item xs={6}>
-          <BookCard 
-            book={book} 
+      const booksCards = this.props.books.map(book =>
+        <Grid key={book.id} item xs={12} sm={6} md={4}>
+          <BookCard
+            book={book}
             reviews={this.props.reviews}
             delete={this.props.delete}
             isFetchingBooks={this.props.isFetchingBooks}
@@ -55,46 +55,51 @@ class Home extends React.Component {
             dispReviews={false}
           />
         </Grid>
-        );
-      
+      );
+
       return (
-        <div className="Home" style={{padding: "0 60px 20px 60px" }}>
-          <IconButton color="primary" onClick={this.handleOpen}>
-            <AddIcon />
-          </IconButton>
-          <Typography 
-            variant="h6" 
-            color="primary"
-            // style={{ maxWidth: '400px' }}
+        <div className="Home" style={{ padding: "0 60px 20px 60px" }}>
+          <Grid
+            container
+            direction="row"
+            justify="flex-start"
+            alignItems="center"
           >
-            Add a Book!
-          </Typography>
-          <Grid 
-            container 
+            <Grid item xs={6} sm={4}>
+              <Button color="primary" onClick={this.handleOpen}>
+                <Typography
+                  variant="h6"
+                  color="primary"
+                >
+                  +  Add a Book!
+                </Typography>
+              </Button>
+            </Grid>
+          </Grid>
+          <Grid
+            container
             direction="row"
             justify="space-evenly"
             alignItems="flex-start"
             wrap="wrap"
           >
             {booksCards}
-            <Modal 
-              open={this.state.addBookModal}
-              onClose={this.handleClose}
-            >
-              <div style={modalStyle}>
-                <AddBookForm 
-                  addBook={this.props.addBook}
-                  closeModal={this.handleClose}
-                />
-              </div>
-            </Modal>
           </Grid>
+          <Dialog
+            open={this.state.addBookDialog}
+            onClose={this.handleClose}
+          >
+            <AddBookForm
+              addBook={this.props.addBook}
+              closeDialog={this.handleClose}
+            />
+          </Dialog>
         </div>
       );
     } else {
       return <ProgressBar />
     }
-  }  
+  }
 }
 
 export default withRouter(Home);
