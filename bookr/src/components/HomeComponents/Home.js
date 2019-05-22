@@ -65,7 +65,7 @@ class Home extends React.Component {
             justify="flex-start"
             alignItems="center"
           >
-            <Grid item xs={4}>
+            <Grid item xs={6} sm={4}>
               <Button color="primary" onClick={this.handleOpen}>
                 <Typography
                   variant="h6"
