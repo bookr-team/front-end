@@ -4,7 +4,6 @@ import { withRouter } from 'react-router';
 import Grid from '@material-ui/core/Grid';
 import Dialog from '@material-ui/core/Dialog';
 import Button from '@material-ui/core/Button';
-import AddIcon from '@material-ui/icons/Add';
 import Typography from '@material-ui/core/Typography';
 
 import BookCard from '../BooksComponents/BookCard';
@@ -32,11 +31,6 @@ class Home extends React.Component {
   }
 
   render() {
-
-    const dialogStyle = {
-      // transform: `translate(0vh, 30vh)`,
-      // width: `33%`,
-    };
 
     if (!this.props.isFetchingBooks && !this.props.isFetchingReviews) {
       // only render if we have a book & reviews
